@@ -1,0 +1,10 @@
+{
+    "User": {
+        "datei": "user/felix.json",
+        "name": "Felix",
+        "password": "xxxxxx"
+    },
+    "Forum": {
+        "xyz": 0
+    }
+}
