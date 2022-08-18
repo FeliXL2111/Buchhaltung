@@ -1,4 +1,6 @@
+from hashlib import new
 import json
+import webbrowser
 
 def surch(name):
     fad = 'user/' + name + '.json'
@@ -18,6 +20,10 @@ class User:
             pass
         else:
             self.datei = datei
+
+webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
+
+
 
 # user1 = User('user/felix.json', 'Felix', 'xxxxxx')
 # d1 = user1.datei
