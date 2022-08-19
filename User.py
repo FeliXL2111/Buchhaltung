@@ -5,7 +5,7 @@ import webbrowser
 def surch(name):
     fad = 'user/' + name + '.json'
     try:
-        with open(fad) as file_t:
+        with open(fad, 'r') as file_t:
             pass
         return True
     except:
