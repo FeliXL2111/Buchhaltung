@@ -1,0 +1,56 @@
+body{
+    background-color: #202124;
+}
+
+h1{
+    background-color: beige;
+	border-radius:10px;
+    border-color: #5f6368;
+}
+#plot{
+    background-color: #202124;
+    width: 666px;
+    height: 506px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    position: relative;
+    top: 70px;
+    left: 41%;
+    margin: 10xp;
+    
+}
+#daten{
+    background-color: #202124;;
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    flex-direction: column;
+    top: 100px;
+    left: 45.5%;
+    text-align: center;
+}
+#head{
+    position: relative;
+    left: 40%;
+    height: auto;
+    width: 180px;
+}
+.inpu{
+    position: relative;
+    margin: 10%;
+}
+/*
+input{
+
+} 
+*/
+img{
+    position: relative;
+    
+    top: 10px;
+    left: 10px;
+    border-radius: 8px;
+    margin: 2%;
+}
