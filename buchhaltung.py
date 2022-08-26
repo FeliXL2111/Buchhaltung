@@ -2,33 +2,36 @@ import json
 from tkinter import *
 from tkinter.font import *
 
-schriftart = 'Consolas'
+schriftart = 'Times'
 
 window = Tk()
 window.title('Buchhaltung')
 window.iconbitmap('icon.ico')
 window.geometry('2000x1000')
-window.configure(bg='grey26')
+window.configure(bg='#202124')
 
 
 
 
 
-ueberschrift = Label(window, text='Überschrift', font=(schriftart, 30), bg='snow')
-ueberschrift.pack(pady = 5, fill='x', padx=5)
+ueberschrift = Label(window, text='Überschrift', font=(schriftart, 30), fg='snow', bg='#202124')
+ueberschrift.pack(pady = 5, padx=5)
 
-box = Entry(window, width=40)
-box.place(x=700,y=90)
+box = Entry(window, width=40, font=('Consolas', 10))
+box.pack(pady=10)
 
 frame = Frame(master=window)
-frame.place(x=1000, y=70)
+frame.pack()
 
-label = Label(frame, text='Hier ist wein Text', font=(schriftart, 10))
-label.pack()
+label = Label(frame, text='Hier ist ein Text', font=(schriftart, 10))
+label.grid(row=0, column=0)
+
+label2 = Label(frame, text='Hier ist ein Text', font=(schriftart, 10))
+label2.grid(row=1, column=1)
 
 photo = PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\plots\first_plot.png')
 l_photo = Label(window, image=photo)
-l_photo.place(x=20, y=70)
+l_photo.pack(padx=10, pady=10)
 
 
 
