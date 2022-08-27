@@ -28,17 +28,17 @@ frame = Frame(master=window)
 frame.pack()
 
 label = Label(frame, text='Hier ist ein Text', font=(schriftart, 11))
-label.pack()
+label.pack(side='right', expand=True)
 
-label2 = Label(frame, text='Hier ist ein Text', font=(schriftart, 11))
-label2.pack()
+label2 = Label(frame, text='Hier ist ein Dext', font=(schriftart, 11))
+label2.pack(side='left',expand=True)
 
 h_button = Button(frame, text='hinzufügen', font=(schriftart, 11), border=0, bg='blue', command=size)
-h_button.pack()
+h_button.pack(side='right', expand=True)
 
 photo = PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\plots\first_plot.png')
 l_photo = Label(window, image=photo)
-l_photo.pack(padx=10, pady=10)
+l_photo.pack(side='left', expand=True, padx=10, pady=10)
 
 
 
