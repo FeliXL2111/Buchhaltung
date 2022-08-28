@@ -26,7 +26,7 @@ foto_leiste.place(x=0,y=0)
 # logo= PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\undraw_Investing_re_bov7.png')
 width = 268
 height = 193
-img = Image.open(r"C:\Users\Felix\VS Code Projekts\Buchhaltung\undraw_Investing_re_bov7.png")
+img = Image.open("undraw_Investing_re_bov7.png")
 img = img.resize((width,height), Image.LANCZOS)
 photoImg =  ImageTk.PhotoImage(img)
 # logo.subsample(40, 40)
@@ -73,7 +73,7 @@ bis_button = Entry(graph_frame, width=40, font=('Consolas', 11), border=0, fg='s
 bis_button.pack(side='right')
 bis_button.insert(0, 'Bis')
 
-photo = PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\plots\first_plot.png')
+photo = PhotoImage(file=r'plots\first_plot.png')
 l_photo = Label(middel_frame, image=photo)
 l_photo.pack(side='bottom')
 
