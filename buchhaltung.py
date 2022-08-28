@@ -16,7 +16,12 @@ middel_frame= Frame(master=window, width=300, height=900)
 middel_frame.pack(fill='y')
 
 
-leiste = Frame(master=window, width=268, height=1000, bg='#ffffff')
+#################################################################################################################
+'''
+    Liste
+'''
+
+leiste = Frame(master=window, width=268, height=3000, bg='#ffffff')
 leiste.place(x=0, y=0)
 
 foto_leiste = Frame(master=leiste)
@@ -37,8 +42,22 @@ l_logo.pack()
 
 
 show_prifil= Button(leiste, text='Profil', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
-show_prifil.place(relx=0.1, rely=0.2)
+show_prifil.place(relx=0.1, rely=0.07)
 
+trennung = Frame(leiste, width=220, height=5, bg='#202124')
+trennung.place(relx=0.1, rely=0.09)
+
+settings_prifil= Button(leiste, text='Einstellungen', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
+settings_prifil.place(relx=0.1, rely=0.1)
+
+trennung2 = Frame(leiste, width=220, height=5, bg='#202124')
+trennung2.place(relx=0.1, rely=0.12)
+
+
+###############################################################################################################
+'''
+    Main
+'''
 
 ueberschrift = Label(middel_frame, text='Überschrift', font=(schriftart, 30), fg='snow', bg='#202124')
 ueberschrift.pack()
