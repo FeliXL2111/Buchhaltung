@@ -3,7 +3,7 @@ import json
 import webbrowser
 
 def surch(name):
-    fad = 'user/' + name + '.json'
+    fad = r'user'+name+'/'+name+'.json'
     try:
         with open(fad, 'r') as file_t:
             pass
