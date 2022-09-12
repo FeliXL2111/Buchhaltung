@@ -4,19 +4,17 @@ import json
 def make_plot(beginn, end):
     a = beginn
     b= end
+    x = []
+    y = []
 
-    with open(r'user\felix\felix.json', 'r') as plot_data:
+    with open(r'user\felix\data.json', 'r') as plot_data:
         cc = json.load(plot_data)
         for element in cc:
-            print(element)
-            for xx in cc[element]:
-                print(xx)
-                print(cc[element][xx])
+            x.append(cc[element]['date'])
+            y.append(cc[element]['amount'])
 
         # print(cc['User']['name'])
 
-    x = ['2022/10/10','2022/10/11','2022/10/12','2022/10/13']
-    y = [1,2,3,4]
 
     plt.plot(x, y)
     path = r'plots\first_plot.png'
