@@ -1,30 +1,33 @@
-from hashlib import new
 import json
 import webbrowser
 
 def surch(name):
-    fad = r'user'+name+'/'+name+'.json'
+    # fad = r'user'+name+'/'+name+'.json'
+    fad = r'user'+name
     try:
         with open(fad, 'r') as file_t:
             pass
-        return True
-    except:
         return False
+    except:
+        return True
 
 
 class User:
-    def __init__(self, datei, name='Felix', password='12345'):
+    def __init__(self, name='Felix', password='12345'):
         self.name = name
         self.password = password
-        if surch(self.name):
-            pass
-        else:
-            self.datei = datei
 
-webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
-webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\in_web.html', new=new)
+# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
+# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\in_web.html', new=new)
 
+def new_user(name, pw):
+    if surch(name):
+        # user = User(name, pw)
+        return 'x'
+    else:
+        return 'already existing user'
 
+print(new_user('Felix', '234563'))
 
 # user1 = User('user/felix.json', 'Felix', 'xxxxxx')
 # d1 = user1.datei

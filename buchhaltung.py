@@ -7,7 +7,7 @@ schriftart = 'Microsoft YaHei UI Light'
 
 window = Tk()
 window.title('Buchhaltung')
-window.iconbitmap('icon.ico')
+window.iconbitmap(r'plots\icon.ico')
 window.geometry('2000x1000')
 window.configure(bg='#202124')
 
