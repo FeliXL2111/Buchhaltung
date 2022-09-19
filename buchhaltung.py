@@ -31,7 +31,7 @@ foto_leiste.place(x=0,y=0)
 # logo= PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\undraw_Investing_re_bov7.png')
 width = 268
 height = 193
-img = Image.open("undraw_Investing_re_bov7.png")
+img = Image.open(r"plots\undraw_Investing_re_bov7.png")
 img = img.resize((width,height), Image.LANCZOS)
 photoImg =  ImageTk.PhotoImage(img)
 # logo.subsample(40, 40)
