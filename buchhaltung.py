@@ -12,9 +12,6 @@ window.geometry('2000x1000')
 window.configure(bg='#202124')
 
 
-middel_frame= Frame(master=window, width=300, height=900)
-middel_frame.pack(fill='y')
-
 
 #################################################################################################################
 '''
@@ -58,16 +55,27 @@ trennung2.place(relx=0.1, rely=0.12)
 '''
     Main
 '''
+middel_frame= Frame(master=window, width=300, height=900, bg='#202124')
+middel_frame.pack(fill='y')
 
-ueberschrift = Label(middel_frame, text='Überschrift', font=(schriftart, 30), fg='snow', bg='#202124')
+ueberschrift = Label(middel_frame, text='Buchhaltung', font=(schriftart, 30), fg='snow', bg='#202124')
 ueberschrift.pack()
 
 for i in range(0, 5):
     window.columnconfigure(i, weight=1, minsize=75)
     window.rowconfigure(i, weight=1, minsize=50)
 
-box = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
-box.pack()
+betrag = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
+betrag.pack(pady=5)
+betrag.insert(0, 'Betrag')
+
+date_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
+date_in.pack(pady=5)
+date_in.insert(0, 'Date')
+
+info_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
+info_in.pack(pady=5)
+info_in.insert(0, 'Info')
 
 frame = Frame(master=middel_frame)
 frame.pack()
