@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 import json
 
-def make_plot(beginn, end):
+def make_plot(beginn, end, user):
     a = beginn
     b= end
     x = []
     y = []
+    user_path = user.name.lower()
 
     with open(r'user\felix\data.json', 'r') as plot_data:
         cc = json.load(plot_data)

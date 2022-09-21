@@ -16,6 +16,7 @@ class User:
     def __init__(self, name='Felix', password='12345'):
         self.name = name
         self.password = password
+        self.rank = None
 
 # webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
 # webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\in_web.html', new=new)
