@@ -29,7 +29,7 @@ foto_leiste.place(x=0,y=0)
 width = 268
 height = 193
 img = Image.open(r"plots\undraw_Investing_re_bov7.png")
-img = img.resize((width,height), Image.LANCZOS)
+img = img.resize((width,height), Image.Resampling.LANCZOS)
 photoImg =  ImageTk.PhotoImage(img)
 # logo.subsample(40, 40)
 # a = ImageTk.PhotoImage(logo)
@@ -77,17 +77,19 @@ info_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
 info_in.pack(pady=5)
 info_in.insert(0, 'Info')
 
-frame = Frame(master=middel_frame)
-frame.pack()
+button_frame = Frame(master=middel_frame, bg='#202124')
+button_frame.pack(pady=5)
 
-label = Label(frame, text='Hier ist ein Text', font=(schriftart, 11))
-label.pack(side='right', expand=True)
+label = Button(button_frame, text='Speichern', font=(schriftart, 11), border=0)
+# label.pack(side='left', expand=True, padx=10)
+label.grid(column=0, row=0)
 
-label2 = Label(frame, text='Hier ist ein Dext', font=(schriftart, 11))
-label2.pack(side='left',expand=True)
+placeholder_l = Label(button_frame, text='Hello', bg='#202124', fg='#202124')
+placeholder_l.grid(column=1, row=0)
 
-h_button = Button(frame, text='hinzufügen', font=(schriftart, 11), border=0, bg='blue')
-h_button.pack(side='right', expand=True)
+h_button = Button(button_frame, text='Ploten', font=(schriftart, 11), border=0)
+# h_button.pack(side='right', expand=True,)
+h_button.grid(column=2, row=0)
 
 graph_frame = Frame(master=middel_frame)
 graph_frame.pack()
