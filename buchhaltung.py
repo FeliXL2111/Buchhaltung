@@ -3,10 +3,22 @@ from tkinter import *
 from tkinter.font import *
 from PIL import Image, ImageTk
 
-schriftart = 'Microsoft YaHei UI Light'
+with open(r'settings\setting.json', 'r') as set:
+    settings = json.load(set)
+    schriftart = settings["font"]
+    tmp = settings["language"]
+    
+lang_path = r'settings/language/' + tmp + '.json'
+
+with open(lang_path, 'r') as lang:
+    lang_data = json.load(lang)
+    lang_main_header = lang_data["headers"]["main_header"]
+    for d in lang_data:
+        pass
+
 
 window = Tk()
-window.title('Buchhaltung')
+window.title(lang_main_header)
 window.iconbitmap(r'plots\icon.ico')
 window.geometry('2000x1000')
 window.configure(bg='#202124')

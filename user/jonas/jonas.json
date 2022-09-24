@@ -2,6 +2,7 @@
     "User": {
         "datei": "user/felix/felix.json",
         "name": "Felix",
-        "password": "xxxxxx"
+        "password": "xxxxxx",
+        "language": "englisch"
     }
 }
