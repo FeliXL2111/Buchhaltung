@@ -1,5 +1,9 @@
 {
     "headers":{
         "main_header": "Bookholding"
+    },
+    "bar":{
+        "profile": "Profile",
+        "settings": "Settings"
     }
 }

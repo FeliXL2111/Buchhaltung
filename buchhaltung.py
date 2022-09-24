@@ -13,8 +13,14 @@ lang_path = r'settings/language/' + tmp + '.json'
 with open(lang_path, 'r') as lang:
     lang_data = json.load(lang)
     lang_main_header = lang_data["headers"]["main_header"]
-    for d in lang_data:
-        pass
+    lang_bar_profile = lang_data["bar"]["profile"]
+    lang_bar_settings = lang_data["bar"]["settings"]
+
+
+
+    # for section in lang_data:
+    #     for trans in lang_data[section]:
+    #         print(lang_data[section][trans])
 
 
 window = Tk()
@@ -27,7 +33,7 @@ window.configure(bg='#202124')
 
 #################################################################################################################
 '''
-    Liste
+    Leiste
 '''
 
 leiste = Frame(master=window, width=268, height=3000, bg='#ffffff')
@@ -50,13 +56,13 @@ l_logo = Label(foto_leiste, image=photoImg, border=0)
 l_logo.pack()
 
 
-show_prifil= Button(leiste, text='Profil', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
+show_prifil= Button(leiste, text=lang_bar_profile, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
 show_prifil.place(relx=0.1, rely=0.07)
 
 trennung = Frame(leiste, width=220, height=5, bg='#202124')
 trennung.place(relx=0.1, rely=0.09)
 
-settings_prifil= Button(leiste, text='Einstellungen', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
+settings_prifil= Button(leiste, text=lang_bar_settings, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
 settings_prifil.place(relx=0.1, rely=0.1)
 
 trennung2 = Frame(leiste, width=220, height=5, bg='#202124')
@@ -70,7 +76,7 @@ trennung2.place(relx=0.1, rely=0.12)
 middel_frame= Frame(master=window, width=300, height=900, bg='#202124')
 middel_frame.pack(fill='y')
 
-ueberschrift = Label(middel_frame, text='Buchhaltung', font=(schriftart, 30), fg='snow', bg='#202124')
+ueberschrift = Label(middel_frame, text=lang_main_header, font=(schriftart, 30), fg='snow', bg='#202124')
 ueberschrift.pack()
 
 for i in range(0, 5):
