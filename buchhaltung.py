@@ -21,8 +21,14 @@ def open_settings():
     sett_win = Tk()
     sett_win.title(lang_bar_settings)
     sett_win.iconbitmap(r'plots\setting.ico')
-    sett_win.geometry('2000x1000')
+    sett_win.geometry('1000x500')
     sett_win.configure(bg='#202124')
+
+    middel_frame= Frame(sett_win, width=300, height=900, bg='#202124')
+    middel_frame.pack(fill='y')
+
+    tmp2 = Label(middel_frame, text='Suiiii', font=(schriftart, 11))
+    tmp2.pack()
 
     sett_win.mainloop()
 
@@ -42,6 +48,8 @@ def open_win(user):
         lang_main_header = lang_data["headers"]["main_header"]
         lang_bar_profile = lang_data["bar"]["profile"]
         lang_bar_settings = lang_data["bar"]["settings"]
+        lang_buttons_save = lang_data["buttons"]["save"]
+        lang_buttons_plot = lang_data["buttons"]["plot"]
 
         # for section in lang_data:
         #     for trans in lang_data[section]:
@@ -123,16 +131,16 @@ def open_win(user):
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
 
-    label = Button(button_frame, text='Speichern', font=(schriftart, 11), border=0)
+    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0)
     # label.pack(side='left', expand=True, padx=10)
-    label.grid(column=0, row=0)
+    save_button.grid(column=0, row=0)
 
     placeholder_l = Label(button_frame, text='Hello', bg='#202124', fg='#202124')
     placeholder_l.grid(column=1, row=0)
 
-    h_button = Button(button_frame, text='Ploten', font=(schriftart, 11), border=0)
+    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0)
     # h_button.pack(side='right', expand=True,)
-    h_button.grid(column=2, row=0)
+    plot_button.grid(column=2, row=0)
 
     graph_frame = Frame(master=middel_frame)
     graph_frame.pack()
