@@ -1,9 +1,18 @@
 {
     "headers":{
-        "main_header": "Bookholding"
+        "main_header": "Accounting"
     },
     "bar":{
         "profile": "Profile",
         "settings": "Settings"
+    },
+    "buttons":{
+        "save": "Save",
+        "plot": "Plot"
+    },
+    "inputs":{
+        "amount": "Amount",
+        "date": "Date",
+        "info": "Info"
     }
 }

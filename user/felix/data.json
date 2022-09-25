@@ -8,5 +8,10 @@
         "amount": 20,
         "date": "2022/5/11",
         "reason": "Ein Bio Buch gekauft"
+    },
+    "payment3": {
+        "amount": 40,
+        "date": "2022/5/13",
+        "reason": "Ein Bio Buch gekauft"
     }
 }

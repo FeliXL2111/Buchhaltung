@@ -1,5 +1,18 @@
 {
     "headers":{
         "main_header": "Buchhaltung"
+    },
+    "bar":{
+        "profile": "Profil",
+        "settings": "Einstellungen"
+    },
+    "buttons":{
+        "save": "Speichern",
+        "plot": "Ploten"
+    },
+    "inputs":{
+        "amount": "Betrag",
+        "date": "Datum",
+        "info": "Info"
     }
 }

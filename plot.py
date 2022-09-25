@@ -6,7 +6,7 @@ def make_plot(beginn, end, user):
     b= end
     x = []
     y = []
-    user_path = user.name.lower()
+    # user_path = user.name.lower()
 
     with open(r'user\felix\data.json', 'r') as plot_data:
         cc = json.load(plot_data)
@@ -22,4 +22,4 @@ def make_plot(beginn, end, user):
     plt.savefig(path)
     plt.show()
 
-make_plot(1,1)
+make_plot(1,1,None)
