@@ -116,9 +116,9 @@ def open_win(user):
         window.columnconfigure(i, weight=1, minsize=75)
         window.rowconfigure(i, weight=1, minsize=50)
 
-    betrag = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
-    betrag.pack(pady=5)
-    betrag.insert(0, 'Betrag')
+    amount_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
+    amount_in.pack(pady=5)
+    amount_in.insert(0, 'Betrag')
 
     date_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     date_in.pack(pady=5)
@@ -128,10 +128,20 @@ def open_win(user):
     info_in.pack(pady=5)
     info_in.insert(0, 'Info')
 
+    def save_input():
+        amount = amount_in.get()
+        date = date_in.get()
+        info = info_in.get()
+        print(amount, date, info)
+
+        placeholder_l.config(text='Gespeichert', fg='#ffffff')
+        
+        # langsame Ausblendung, while...
+
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
 
-    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0)
+    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=save_input)
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0)
 
