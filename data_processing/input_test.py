@@ -1,6 +1,8 @@
 def test_date(date):
+    
     try:
-        x = 1
+        arr = date.split('_')
+        print(arr)
         return True 
     except:
         return False
@@ -26,4 +28,4 @@ def test_input_accuracy(amount, date, info):
     else:
         return 'No accurat inputs'
 
-print(test_input_accuracy(300, 30_11_3030, 'Datto'))
+print(test_input_accuracy(300, '30_11_3030', 'Datto'))
