@@ -20,6 +20,5 @@ def make_plot(beginn, end, user):
     plt.plot(x, y)
     path = r'plots\first_plot.png'
     plt.savefig(path)
-    plt.show()
 
 make_plot(1,1,None)

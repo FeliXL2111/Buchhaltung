@@ -2,6 +2,28 @@ import json
 from tkinter import *
 from tkinter.font import *
 from PIL import Image, ImageTk
+import time
+import threading
+#from plots.plot import make_plot
+
+class Time_thread(threading.Thread):
+    def __init__(self, id, name):
+        threading.Thread.__init__(self)
+        self.id = id
+        self.name = name
+
+    def run(self):
+        print('moin')
+        time.sleep(3)
+        return '#202124'
+
+wait_t = Time_thread(1, 'wait')
+
+
+def show_new_plot():
+    #make_plot(1, 1, None)
+    return None
+
 
 def open_settings():
     with open(r'user/felix/felix.json', 'r') as set:
@@ -130,8 +152,11 @@ def open_win(user):
 
     def save_input():
         amount = amount_in.get()
+        amount_in.delete(0, END)
         date = date_in.get()
+        date_in.delete(0, END)
         info = info_in.get()
+        info_in.delete(0, END)
         print(amount, date, info)
 
         placeholder_l.config(text='Gespeichert', fg='#ffffff')
@@ -145,10 +170,10 @@ def open_win(user):
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0)
 
-    placeholder_l = Label(button_frame, text='Hello', bg='#202124', fg='#202124')
+    placeholder_l = Label(button_frame, text='Gespeichert', bg='#202124', fg='#202124')
     placeholder_l.grid(column=1, row=0)
 
-    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0)
+    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot())
     # h_button.pack(side='right', expand=True,)
     plot_button.grid(column=2, row=0)
 
