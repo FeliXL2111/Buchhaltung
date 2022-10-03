@@ -6,9 +6,13 @@ from windows.setting_window import open_settings
 from windows.profile_window import open_profile
 
 def open_win(user, xxxx, yyyy):
+    global g_user
+    g_user = user
     def tmp_open_settings():
-        open_settings(None)
+        open_settings(g_user)
 
+    def tmp_open_profile():
+        open_profile(g_user)
 
     # pathh = r'user/' + user.name +'/' +user.name + '.json'
     with open(r'user/felix/felix.json', 'r') as set:
@@ -65,7 +69,7 @@ def open_win(user, xxxx, yyyy):
     l_logo.pack()
 
 
-    show_profile= Button(leiste, text=lang_bar_profile, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8')
+    show_profile= Button(leiste, text=lang_bar_profile, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_profile)
     show_profile.place(relx=0.1, rely=0.07)
 
     trennung = Frame(leiste, width=220, height=5, bg='#202124')

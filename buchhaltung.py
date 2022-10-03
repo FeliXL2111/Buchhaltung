@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 import time
 import threading
 from windows.main_window import open_win
+from data_processing.hash_imput import hash_in
 
 class Time_thread(threading.Thread):
     def __init__(self, id, name):
@@ -25,14 +26,6 @@ def show_new_plot():
     return None
 
 
-# width = 268
-# height = 193
-# img = Image.open(r"plots\undraw_Investing_re_bov7.png")
-# img = img.resize((width,height), Image.Resampling.LANCZOS)
-# logo_img =  ImageTk.PhotoImage(img)
 
-# time.sleep(3)
-
-# photo = PhotoImage(file=r'plots\first_plot.png')
-
-open_win(None, None, None)
+# open_win(None, None, None)
+hash_in('Hallo')
