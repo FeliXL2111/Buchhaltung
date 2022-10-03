@@ -1,0 +1,12 @@
+{
+    "user": {
+        "datei": "user/user_tmp/username_tmp.json",
+        "name": "user_tmp",
+        "password": "",
+        "language": "english"
+    },
+    "data_stats": {
+        "start": 0,
+        "end": 0
+    }
+}
