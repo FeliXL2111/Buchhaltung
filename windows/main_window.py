@@ -4,15 +4,16 @@ from tkinter.font import *
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
+from plots.plot import *
 
-def open_win(user, xxxx, yyyy):
-    global g_user
-    g_user = user
+def open_win(user, xxxx = None, yyyy = None):
+    global global_user
+    global_user = user
     def tmp_open_settings():
-        open_settings(g_user)
+        open_settings(global_user)
 
     def tmp_open_profile():
-        open_profile(g_user)
+        open_profile(global_user)
 
     # pathh = r'user/' + user.name +'/' +user.name + '.json'
     with open(r'user/felix/felix.json', 'r') as set:
@@ -131,8 +132,12 @@ def open_win(user, xxxx, yyyy):
     placeholder_l = Label(button_frame, text='Gespeichert', bg='#202124', fg='#202124')
     placeholder_l.grid(column=1, row=0)
 
+    plot_image = PhotoImage(file=r'plots\first_plot.png')
+    l_photo = Label(middel_frame, image=plot_image)
+
     def show_new_plot():
-        pass
+        # make_plot()
+        l_photo.config(image=plot_image)
 
 
 

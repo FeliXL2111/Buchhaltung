@@ -15,6 +15,7 @@ def surch(name):
 class User:
     def __init__(self, name='Felix', password='12345'):
         self.name = name
+        self.lower_name = name.lower()
         self.password = password
         self.rank = None
 

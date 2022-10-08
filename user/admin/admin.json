@@ -1,0 +1,13 @@
+{
+    "user": {
+        "datei": "user/admin/admin.json",
+        "name": "Admin",
+        "lower_name": "admin",
+        "password": "adminfelix",
+        "language": "english"
+    },
+    "data_stats": {
+        "start": 0,
+        "end": 0
+    }
+}
