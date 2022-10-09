@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
 import json
+import time
 
-def make_plot(beginn, end, user):
+def make_plot(user, beginn = None, end = None):
     a = beginn
     b= end
     x = []
     y = []
-    # user_path = user.name.lower()
+    user_path = user.name.lower()
 
     with open(r'user\felix\data.json', 'r') as plot_data:
         cc = json.load(plot_data)
@@ -16,9 +17,31 @@ def make_plot(beginn, end, user):
 
         # print(cc['User']['name'])
 
+    
 
     plt.plot(x, y)
     path = r'plots\first_plot.png'
-    plt.savefig(path)
+    path_sec = r'plots\first_plot_sec.png'
+    global chanche
+    global last
+    last = path
+    chanche = False
+    
 
-make_plot(1,1,None)
+    if last == path:
+        plt.savefig(path_sec)
+        last = path_sec
+    else:
+        plt.savefig(path)
+        last = path
+
+    chanche = True
+
+def abfrage():
+    if chanche:
+        return True
+    else:
+        return False
+
+def last_funk():
+    return last
