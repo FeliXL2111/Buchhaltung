@@ -6,7 +6,7 @@ import time
 import threading
 from windows.main_window import open_win
 from data_processing.hash_imput import hash_in
-from User import User
+from user import User
 
 class Time_thread(threading.Thread):
     def __init__(self, id, name):

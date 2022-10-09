@@ -4,7 +4,8 @@ from tkinter.font import *
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
-from plots.plot import *
+from plots.plot import make_plot, abfrage, last_funk
+import threading
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user
@@ -14,6 +15,10 @@ def open_win(user, xxxx = None, yyyy = None):
 
     def tmp_open_profile():
         open_profile(global_user)
+
+    def tmp_make_plot():
+        make_plot(global_user)
+        return
 
     # pathh = r'user/' + user.name +'/' +user.name + '.json'
     with open(r'user/felix/felix.json', 'r') as set:
@@ -136,12 +141,23 @@ def open_win(user, xxxx = None, yyyy = None):
     l_photo = Label(middel_frame, image=plot_image)
 
     def show_new_plot():
-        # make_plot()
-        l_photo.config(image=plot_image)
+        tmp_make_plot()
+        print('plot erfolgreich gebildet')
+        tmp_wert = True
+        while tmp_wert:
+            if abfrage():
+                con_path = last_funk()
+                plot_image_conf = PhotoImage(file=con_path)
+                l_photo.config(image=plot_image_conf)
+                tmp_wert = False
+            else:
+                tmp_wert = True
+        
+        print('config')
 
 
 
-    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot())
+    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=threading.Thread(target=show_new_plot).start())
     # h_button.pack(side='right', expand=True,)
     plot_button.grid(column=2, row=0)
 
