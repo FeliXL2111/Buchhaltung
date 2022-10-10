@@ -1,7 +1,4 @@
 import json
-from tkinter import *
-from tkinter.font import *
-from PIL import Image, ImageTk
 import time
 import threading
 from windows.main_window import open_win

@@ -6,6 +6,7 @@ from windows.setting_window import open_settings
 from windows.profile_window import open_profile
 from plots.plot import make_plot, abfrage, last_funk
 import threading
+import time
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user
@@ -124,13 +125,13 @@ def open_win(user, xxxx = None, yyyy = None):
         print(amount, date, info)
 
         placeholder_l.config(text='Gespeichert', fg='#ffffff')
-        
-        # langsame Ausblendung, while...
+        time.sleep(4)
+        placeholder_l.config(fg='#202124')
 
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
 
-    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=save_input)
+    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=threading.Thread(target=save_input).start)
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0)
 
@@ -143,19 +144,12 @@ def open_win(user, xxxx = None, yyyy = None):
     def show_new_plot():
         tmp_make_plot()
         print('plot erfolgreich gebildet')
-        tmp_wert = True
-        while tmp_wert:
-            if abfrage():
-                con_path = last_funk()
-                plot_image_conf = PhotoImage(file=con_path)
-                l_photo.config(image=plot_image_conf)
-                tmp_wert = False
-            else:
-                tmp_wert = True
-        
+        con_path = last_funk()
+        plot_image_conf = PhotoImage(file=con_path)
+        l_photo.config(image=plot_image_conf)
         print('config')
 
-
+        
 
     plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=threading.Thread(target=show_new_plot).start())
     # h_button.pack(side='right', expand=True,)
