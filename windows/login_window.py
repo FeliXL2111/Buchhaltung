@@ -1,13 +1,20 @@
 from tkinter import *
 from windows.main_window import open_win
+from user import User
+import time
+from data_processing.prove_valid import valid_user
 
 schriftart = "Microsoft YaHei UI Light"
 
 global world_user
-world_user = None
+world_user = User('Admin', 'adminfelix')
+
+global admin_boo
+admin_boo = False
 
 def tmp_open_win():
     open_win(world_user)
+
 
 
 def open_login():
@@ -17,24 +24,30 @@ def open_login():
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 
+    def tmp_imput_prove():
+        username = username_in.get()
+        password = password_in.get()
+        if valid_user(username, password):
+            window.destroy()
+            time.sleep(1)
+            tmp_open_win()
+        else:
+            invalid_label = Label(window, text='No valid inputs')
+            invalid_label.pack()
+
+
     ueberschrift = Label(window, text='Login', font=(schriftart, 30), fg='snow', bg='#202124')
     ueberschrift.pack()
 
-    date_in = Entry(window, width=40, font=('Consolas', 11), border=0)
-    date_in.pack(pady=5)
-    date_in.insert(0, 'Username')
-
-    trennung = Frame(window, width=220, height=5, bg='#202124')
-    trennung.place()
+    username_in = Entry(window, width=40, font=('Consolas', 11), border=0)
+    username_in.pack(pady=10)
+    username_in.insert(0, 'Username')
 
     password_in = Entry(window, width=40, font=('Consolas', 11), border=0)
-    password_in.pack(pady=5)
+    password_in.pack(pady=10)
     password_in.insert(0, 'Password')
 
-    trennung2 = Frame(window, width=220, height=5, bg='#202124')
-    trennung2.place()
-
-    login = Button(window, text='log in', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_win)
-    login.place()
+    login = Button(window, text='Login', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_imput_prove)
+    login.pack(pady=10)
 
     window.mainloop()

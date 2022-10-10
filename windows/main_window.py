@@ -19,7 +19,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     def tmp_make_plot():
         make_plot(global_user)
-        return
+        return None
 
     # pathh = r'user/' + user.name +'/' +user.name + '.json'
     with open(r'user/felix/felix.json', 'r') as set:
@@ -125,13 +125,12 @@ def open_win(user, xxxx = None, yyyy = None):
         print(amount, date, info)
 
         placeholder_l.config(text='Gespeichert', fg='#ffffff')
-        time.sleep(4)
-        placeholder_l.config(fg='#202124')
+        placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
 
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
 
-    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=threading.Thread(target=save_input).start)
+    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=save_input)
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0)
 
@@ -146,12 +145,11 @@ def open_win(user, xxxx = None, yyyy = None):
         print('plot erfolgreich gebildet')
         con_path = last_funk()
         plot_image_conf = PhotoImage(file=con_path)
-        l_photo.config(image=plot_image_conf)
+        l_photo.after(1500, l_photo.config(image=plot_image_conf)) 
         print('config')
 
-        
 
-    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=threading.Thread(target=show_new_plot).start())
+    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot)
     # h_button.pack(side='right', expand=True,)
     plot_button.grid(column=2, row=0)
 

@@ -1,9 +1,9 @@
 import json
 import time
 import threading
-from windows.main_window import open_win
+from windows.login_window import open_login
 from data_processing.hash_imput import hash_in
-from user import User
+
 
 class Time_thread(threading.Thread):
     def __init__(self, id, name):
@@ -23,7 +23,4 @@ def show_new_plot():
     #make_plot(1, 1, None)
     return None
 
-admin = User('Admin', 'adminfelix')
-
-open_win(admin)
-hash_in('Hallo')
+open_login()
