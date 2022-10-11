@@ -124,8 +124,8 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
 
-        placeholder_l.config(text='Gespeichert', fg='#ffffff')
-        placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
+        # placeholder_l.config(text='Gespeichert', fg='#ffffff')
+        # placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
 
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
@@ -143,10 +143,10 @@ def open_win(user, xxxx = None, yyyy = None):
     def show_new_plot():
         tmp_make_plot()
         print('plot erfolgreich gebildet')
-        con_path = last_funk()
-        plot_image_conf = PhotoImage(file=con_path)
-        l_photo.after(1500, l_photo.config(image=plot_image_conf)) 
-        print('config')
+        # con_path = last_funk()
+        # plot_image_conf = PhotoImage(file=con_path)
+        # l_photo.config(image=plot_image_conf)
+        # print('config')
 
 
     plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot)

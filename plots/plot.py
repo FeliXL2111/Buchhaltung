@@ -26,16 +26,16 @@ def make_plot(user, beginn = None, end = None):
     global last
     last = path
     chanche = False
-    
 
     if last == path:
-        plt.savefig(path_sec)
+        plt.savefig(path_sec)     
         last = path_sec
     else:
         plt.savefig(path)
         last = path
 
     chanche = True
+    print(f'last: {last}')
 
 def abfrage():
     if chanche:
