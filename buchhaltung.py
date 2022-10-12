@@ -6,15 +6,14 @@ from data_processing.hash_imput import hash_in
 
 
 class Time_thread(threading.Thread):
-    def __init__(self, id, name):
+    def __init__(self, id, name, funk):
         threading.Thread.__init__(self)
         self.id = id
         self.name = name
+        self.funk = funk
 
     def run(self):
-        print('moin')
-        time.sleep(3)
-        return '#202124'
+        self.funk()
 
 #wait_t = Time_thread(1, 'wait')
 
