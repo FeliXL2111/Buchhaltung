@@ -1,3 +1,2 @@
-Tkinter
 Pillow
 matplotlib
