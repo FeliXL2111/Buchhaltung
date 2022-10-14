@@ -20,7 +20,7 @@ def tmp_open_win():
 def open_login():
     window = Tk()
     window.title('Login')
-    window.iconbitmap(r'plots\icon.ico')
+    window.iconbitmap(r'..\plots\icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 

@@ -22,13 +22,13 @@ def open_win(user, xxxx = None, yyyy = None):
         return None
 
     # pathh = r'user/' + user.name +'/' +user.name + '.json'
-    with open(r'user/felix/felix.json', 'r') as set:
+    with open(r'../user/felix/felix.json', 'r') as set:
         user_set = json.load(set)
         schriftart = "Microsoft YaHei UI Light"
         # schriftart = user_set["font"]
         tmp = user_set["user"]["language"]
         
-    lang_path = r'settings/language/' + tmp + '.json'
+    lang_path = r'../settings/language/' + tmp + '.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)
@@ -45,7 +45,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     window = Tk()
     window.title(lang_main_header)
-    window.iconbitmap(r'plots\icon.ico')
+    window.iconbitmap(r'../plots\icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 
@@ -66,7 +66,7 @@ def open_win(user, xxxx = None, yyyy = None):
     ## logo= PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\undraw_Investing_re_bov7.png')
     width = 268
     height = 193
-    img = Image.open(r"plots\undraw_Investing_re_bov7.png")
+    img = Image.open(r"../plots\undraw_Investing_re_bov7.png")
     img = img.resize((width,height), Image.Resampling.LANCZOS)
     photoImg =  ImageTk.PhotoImage(img)
     ## logo.subsample(40, 40)
@@ -137,7 +137,7 @@ def open_win(user, xxxx = None, yyyy = None):
     placeholder_l = Label(button_frame, text='Gespeichert', bg='#202124', fg='#202124')
     placeholder_l.grid(column=1, row=0)
 
-    plot_image = PhotoImage(file=r'plots\first_plot.png')
+    plot_image = PhotoImage(file=r'..\plots\first_plot.png')
     l_photo = Label(middel_frame, image=plot_image)
 
     def show_new_plot():
@@ -164,7 +164,7 @@ def open_win(user, xxxx = None, yyyy = None):
     bis_button.pack(side='right')
     bis_button.insert(0, 'Bis')
 
-    plot_image = PhotoImage(file=r'plots\first_plot.png')
+    plot_image = PhotoImage(file=r'..\plots\first_plot.png')
     l_photo = Label(middel_frame, image=plot_image)
     l_photo.pack(side='bottom')
 

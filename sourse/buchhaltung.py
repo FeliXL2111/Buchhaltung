@@ -1,6 +1,12 @@
-import json
-import time
 import threading
+
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+
 from windows.login_window import open_login
 from data_processing.hash_imput import hash_in
 
