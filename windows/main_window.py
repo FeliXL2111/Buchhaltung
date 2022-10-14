@@ -164,8 +164,8 @@ def open_win(user, xxxx = None, yyyy = None):
     bis_button.pack(side='right')
     bis_button.insert(0, 'Bis')
 
-    plot_image = PhotoImage(file=r'..\plots\first_plot.png')
-    l_photo = Label(middel_frame, image=plot_image)
+    # plot_image = PhotoImage(file=r'..\plots\first_plot.png')
+    # l_photo = Label(middel_frame, image=plot_image)
     l_photo.pack(side='bottom')
 
 
