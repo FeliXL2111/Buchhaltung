@@ -8,7 +8,6 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 
 from windows.login_window import open_login
-from data_processing.hash_imput import hash_in
 
 
 class Time_thread(threading.Thread):

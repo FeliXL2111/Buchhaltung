@@ -29,7 +29,6 @@ def new_user(name, pw):
     else:
         return 'already existing user'
 
-print(new_user('Felix', '234563'))
 
 # user1 = User('user/felix.json', 'Felix', 'xxxxxx')
 # d1 = user1.datei

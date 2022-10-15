@@ -1,16 +1,16 @@
 {
     "payment1": {
-        "amount": -10,
+        "amount": 40,
         "date": "2022/5/10",
         "reason": "Ein Bio Buch gekauft" 
     },
     "payment2": {
-        "amount": -10,
+        "amount": -600,
         "date": "2022/5/11",
         "reason": "Ein Bio Buch gekauft"
     },
     "payment3": {
-        "amount": -40,
+        "amount": 50,
         "date": "2022/5/13",
         "reason": "Ein Bio Buch gekauft"
     }

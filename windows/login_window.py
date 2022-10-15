@@ -29,7 +29,7 @@ def open_login():
         password = password_in.get()
         if valid_user(username, password):
             window.destroy()
-            time.sleep(1)
+            time.sleep(0.5)
             tmp_open_win()
         else:
             invalid_label = Label(window, text='No valid inputs')
