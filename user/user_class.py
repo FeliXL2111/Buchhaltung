@@ -1,9 +1,10 @@
 import json
 import webbrowser
+from passwort_manager.hash_imput import hash_in
 
 def surch(name):
-    # fad = r'user'+name+'/'+name+'.json'
-    fad = r'user'+name
+    fad = r'../user/'+name+'/'+name+'.json'
+    #fad = r'user'+name
     try:
         with open(fad, 'r') as file_t:
             pass
@@ -13,21 +14,31 @@ def surch(name):
 
 
 class User:
-    def __init__(self, name='Felix', password='12345'):
+    def __init__(self, name, password):
         self.name = name
         self.lower_name = name.lower()
-        self.password = password
+        self.password = hash_in(password)
         self.rank = None
 
-# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
-# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\in_web.html', new=new)
+        with open(r'../user/user_tmp/username_tmp.json', 'r') as tamplate:
+            data = json.load(tamplate)
+
+            with open(r'../user/'+ self.lower_name+ '/'+ self.lower_name+'.json', 'a') as ccc:
+                vvv = json.load(ccc)
+                vvv.update(data)
+
 
 def new_user(name, pw):
     if surch(name):
-        # user = User(name, pw)
-        return 'x'
+        return User(name, pw)
     else:
         return 'already existing user'
+
+
+
+
+# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
+# webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\in_web.html', new=new)
 
 
 # user1 = User('user/felix.json', 'Felix', 'xxxxxx')

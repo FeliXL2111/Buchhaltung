@@ -33,7 +33,3 @@ def comparison(date1, date2):
         
     else:
         return 'second closer to today, year'
-
-    
-
-print(comparison('02_10_2022', '02_11_2022'))

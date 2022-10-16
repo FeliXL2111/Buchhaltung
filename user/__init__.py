@@ -1,1 +1,1 @@
-from .user import User
+from user.user_class import User

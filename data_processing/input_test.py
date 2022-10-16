@@ -27,5 +27,3 @@ def test_input_accuracy(amount, date, info):
         # save_funk(amount, date, info)
     else:
         return 'No accurat inputs'
-
-print(test_input_accuracy(300, '30_11_3030', 'Datto'))

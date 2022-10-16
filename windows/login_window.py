@@ -1,8 +1,7 @@
-import imp
 from tkinter import *
 from windows.main_window import open_win
 from windows.new_user_window import open_new_user
-from user import User
+from user.user_class import User
 import time
 from data_processing.prove_valid import valid_user
 
