@@ -3,6 +3,7 @@ from urllib.parse import uses_relative
 from user.user_class import surch
 from user.user_class import User
 from windows.main_window import open_win
+import time
 
 schriftart = "Microsoft YaHei UI Light"
 
@@ -20,6 +21,9 @@ def open_new_user():
 
         if passwort == prove_passwort and surch(username.lower()):
             tmp_new_user = User(username, passwort)
+            tmp_new_user.load_tmp_for_user()
+            window.destroy()
+            time.sleep(0.3)
             open_win(tmp_new_user.lower_name)
         else:
             error_label = Label(window, text='User already exist or not the same password', font=(schriftart, 11))

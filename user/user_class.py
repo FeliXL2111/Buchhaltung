@@ -1,5 +1,7 @@
 import json
 import webbrowser
+import os
+import time
 from passwort_manager.hash_imput import hash_in
 
 def surch(name):
@@ -20,12 +22,23 @@ class User:
         self.password = hash_in(password)
         self.rank = None
 
+    
+
+    def load_tmp_for_user(self):
+        os.makedirs(r'../user/'+ self.lower_name)
+        f = open(r'../user/' + self.lower_name + '/' + self.lower_name + '.json', 'x')
+        f.close()
         with open(r'../user/user_tmp/username_tmp.json', 'r') as tamplate:
             data = json.load(tamplate)
 
-            with open(r'../user/'+ self.lower_name+ '/'+ self.lower_name+'.json', 'a') as ccc:
-                vvv = json.load(ccc)
-                vvv.update(data)
+        time.sleep(0.3)
+
+        with open(r'../user/'+ self.lower_name+ '/'+ self.lower_name+'.json', 'r+') as user_json:
+            #vvv = json.load(user_json)
+            #vvv.update(data)
+            user_json.write(json.dumps(data, indent=4))
+
+        time.sleep(0.3)
 
 
 def new_user(name, pw):
