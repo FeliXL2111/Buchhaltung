@@ -8,7 +8,8 @@ from data_processing.prove_valid import valid_user
 schriftart = "Microsoft YaHei UI Light"
 
 global world_user
-world_user = User('Admin', 'adminfelix')
+world_user = User('Admin')
+world_user.load_user()
 
 global admin_boo
 admin_boo = False

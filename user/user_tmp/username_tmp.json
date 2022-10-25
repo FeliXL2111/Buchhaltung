@@ -4,9 +4,11 @@
         "name": "user_tmp",
         "lower_name": "user_tmp",
         "password": "",
-        "language": "english"
+        "language": "english",
+        "rank": "user"
     },
     "data_stats": {
+        "last_plot": "first_plot",
         "start": 0,
         "end": 0
     }

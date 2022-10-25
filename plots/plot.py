@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import json
-import time
+
 global last
 last = 'path_sec'
 
@@ -11,7 +11,7 @@ def make_plot(user, beginn = None, end = None):
     y = []
     user_path = user.name.lower()
 
-    with open(r'..\user\felix\data.json', 'r') as plot_data:
+    with open(r'../user/'+ user_path +'/data.json', 'r') as plot_data:
         cc = json.load(plot_data)
         for element in cc:
             x.append(cc[element]['date'])
@@ -19,29 +19,20 @@ def make_plot(user, beginn = None, end = None):
 
         # print(cc['User']['name'])
 
-    
+    tmp_last_plot = user.plot
+    if tmp_last_plot == 'first_plot':
+        tmp_last_plot = 'secon_plot'
+    else:
+        tmp_last_plot = 'first_plot'
 
     plt.plot(x, y)
-    path = r'..\plots\first_plot.png'
-    path_sec = r'..\plots\first_plot_sec.png'
+    path = r'../user/'+ user_path +'/'+ tmp_last_plot+'.png'
     
-    # global last
 
-    # if last == 'path':
-    plt.savefig(path_sec)     
-    #     last = 'path_sec'
-    # else:
-    #     plt.savefig(path)
-    #     last = 'path'
+    plt.savefig(path)     
     plt.close()
-    print(f'last: {last}')
 
-def abfrage():
-    # if chanche:
-    #     return True
-    # else:
-    #     return False
-    pass
+    user.save_plot(tmp_last_plot)
+    user.plot = tmp_last_plot
+    print(f'last: {tmp_last_plot}, {user.plot}')
 
-def last_funk():
-    return last

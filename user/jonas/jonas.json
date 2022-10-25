@@ -1,5 +1,5 @@
 {
-    "User": {
+    "user": {
         "datei": "user/felix/felix.json",
         "name": "Felix",
         "password": "xxxxxx",

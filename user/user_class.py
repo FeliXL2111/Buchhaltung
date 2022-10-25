@@ -16,13 +16,19 @@ def surch(name):
 
 
 class User:
-    def __init__(self, name, password):
+    def __init__(self, name):
         self.name = name
         self.lower_name = name.lower()
-        self.password = hash_in(password)
+        self.password = None
         self.rank = None
+        self.plot = None
 
-    
+    def load_user(self):
+        with open(r'../user/'+ self.lower_name + '/' + self.lower_name +'.json') as directory:
+            user_data = json.load(directory)
+        self.password = user_data["user"]["password"]
+        self.rank = user_data["user"]["rank"]
+        self.plot = user_data["data_stats"]["last_plot"]
 
     def load_tmp_for_user(self):
         os.makedirs(r'../user/'+ self.lower_name)
@@ -40,10 +46,27 @@ class User:
 
         time.sleep(0.3)
 
+    def save_plot(self, last_plot):
+        with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data:
+            dada = json.load(last_plot_data)
+            dada["data_stats"]["last_plot"] = last_plot
+        with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data_2:
+            json.dump(dada, last_plot_data_2, indent=4)
 
-def new_user(name, pw):
+
+    def append_data(self, amount, date, info):
+        with open(r'../user/'+ self.lower_name +'/data.json', 'r+') as raw_append_data:
+            convert_append_data = json.load(raw_append_data)
+            tmp = {"paymentx": {"amount": amount,"money": 210,"date": date,"reason": info}}
+            convert_append_data["paymentx"] = tmp
+            #raw_append_data.write(json.dump(convert_append_data, raw_append_data, indent=4))
+            convert_append_data.update(convert_append_data, indent=4)
+            json.dump(convert_append_data, raw_append_data)
+            
+
+def new_user(name):
     if surch(name):
-        return User(name, pw)
+        return User(name)
     else:
         return 'already existing user'
 

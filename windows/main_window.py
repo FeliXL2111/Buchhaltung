@@ -4,7 +4,7 @@ from tkinter.font import *
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
-from plots.plot import make_plot, abfrage, last_funk
+from plots.plot import make_plot
 import threading
 import time
 
@@ -123,6 +123,7 @@ def open_win(user, xxxx = None, yyyy = None):
         info = info_in.get()
         info_in.delete(0, END)
         print(amount, date, info)
+        user.append_data(amount, date, info)
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
         # placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
@@ -137,20 +138,23 @@ def open_win(user, xxxx = None, yyyy = None):
     placeholder_l = Label(button_frame, text='Gespeichert', bg='#202124', fg='#202124')
     placeholder_l.grid(column=1, row=0)
 
-    plot_image = PhotoImage(file=r'..\plots\first_plot.png')
+    plot_image = PhotoImage(file=r'../user/'+ user.lower_name +'/'+ user.plot+'.png')
     l_photo = Label(middel_frame, image=plot_image)
 
     def show_new_plot():
         tmp_make_plot()
+        time.sleep(0.1)
         print('plot erfolgreich gebildet')
-        # con_path = last_funk()
-        # plot_image_conf = PhotoImage(file=con_path)
-        # l_photo.config(image=plot_image_conf)
-        # print('config')
-
+        time.sleep(0.3)
+        con_path = r'../user/'+ user.lower_name + '/'+user.plot+'.png'
+        plot_image_conf = PhotoImage(file=con_path)
+        l_photo.config(image=plot_image_conf)
+        l_photo.image = plot_image_conf
+        print('config')
+        
 
     plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot)
-    # h_button.pack(side='right', expand=True,)
+    # h_button.pack(side='right', expand=True,)                                                         lambda: threading.Thread(target=show_new_plot()).start()
     plot_button.grid(column=2, row=0)
 
     graph_frame = Frame(master=middel_frame)
