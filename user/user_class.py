@@ -3,6 +3,7 @@ import webbrowser
 import os
 import time
 from passwort_manager.hash_imput import hash_in
+from sourse.sql_probe import create_table
 
 def surch(name):
     fad = r'../user/'+name+'/'+name+'.json'
@@ -45,6 +46,8 @@ class User:
             user_json.write(json.dumps(data, indent=4))
 
         time.sleep(0.3)
+
+        create_table(self, self.lower_name)
 
     def save_plot(self, last_plot):
         with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data:

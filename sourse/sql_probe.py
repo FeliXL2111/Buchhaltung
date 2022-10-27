@@ -2,8 +2,8 @@ import sqlite3
 import os
 
 
-def crate_table(table_name):
-    with sqlite3.connect('user/admin/'+ table_name+'.db') as database:
+def create_table(user, table_name):
+    with sqlite3.connect('user/'+user.lower_name+'/'+ table_name+'.db') as database:
         database.execute("CREATE TABLE humans (name text, age int)")
     
 def add_to_tabel(table_name, atribure_list):
@@ -15,6 +15,6 @@ def print_tabel(tabel_name):
         for i in database.execute("select * from humans"):
             print(i)
 
-# crate_table('name')
+# create_table('name')
 # add_to_tabel("humans", ("Gregor", 300))
 # print_tabel(None)
