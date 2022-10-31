@@ -21,8 +21,8 @@ def open_win(user, xxxx = None, yyyy = None):
         make_plot(global_user)
         return None
 
-    # pathh = r'user/' + user.name +'/' +user.name + '.json'
-    with open(r'../user/felix/felix.json', 'r') as set:
+    pathh = r'../user/' + user.lower_name +'/' +user.lower_name + '.json'
+    with open(pathh, 'r') as set:
         user_set = json.load(set)
         schriftart = "Microsoft YaHei UI Light"
         # schriftart = user_set["font"]
@@ -123,7 +123,7 @@ def open_win(user, xxxx = None, yyyy = None):
         info = info_in.get()
         info_in.delete(0, END)
         print(amount, date, info)
-        user.append_data(amount, date, info)
+        user.append_data_json(amount, date, info)
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
         # placeholder_l.after(5000, placeholder_l.config(fg='#202124'))

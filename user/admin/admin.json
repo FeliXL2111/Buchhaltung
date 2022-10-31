@@ -1,5 +1,5 @@
-{   
-    "user":{
+{
+    "user": {
         "datei": "user/admin/admin.json",
         "name": "Admin",
         "lower_name": "admin",
@@ -8,7 +8,7 @@
         "rank": "admin"
     },
     "data_stats": {
-        "last_plot": "first_plot",
+        "last_plot": "secon_plot",
         "start": 0,
         "end": 0
     }

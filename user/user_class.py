@@ -57,7 +57,7 @@ class User:
             json.dump(dada, last_plot_data_2, indent=4)
 
 
-    def append_data(self, amount, date, info):
+    def append_data_json(self, amount, date, info):
         with open(r'../user/'+ self.lower_name +'/data.json', 'r+') as raw_append_data:
             convert_append_data = json.load(raw_append_data)
             tmp = {"paymentx": {"amount": amount,"money": 210,"date": date,"reason": info}}
@@ -65,7 +65,9 @@ class User:
             #raw_append_data.write(json.dump(convert_append_data, raw_append_data, indent=4))
             convert_append_data.update(convert_append_data, indent=4)
             json.dump(convert_append_data, raw_append_data)
-            
+    
+    def append_data_sql(self, amount, date, info):
+        pass
 
 def new_user(name):
     if surch(name):
