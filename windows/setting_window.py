@@ -3,7 +3,7 @@ from tkinter.font import *
 import json
 
 def open_settings(user):
-    with open(r'../user/felix/felix.json', 'r') as set:
+    with open(r'../user/'+user.lower_name+'/'+user.lower_name+'.json', 'r') as set:
         settings = json.load(set)
         schriftart = "Microsoft YaHei UI Light"
         # schriftart = settings["font"]

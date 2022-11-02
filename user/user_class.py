@@ -3,7 +3,7 @@ import webbrowser
 import os
 import time
 from passwort_manager.hash_imput import hash_in
-from sourse.sql_probe import create_table
+from sourse.sql_probe import add_to_tabel, create_table, print_tabel
 
 def surch(name):
     fad = r'../user/'+name+'/'+name+'.json'
@@ -58,14 +58,18 @@ class User:
 
 
     def append_data_json(self, amount, date, info):
-        with open(r'../user/'+ self.lower_name +'/data.json', 'r+') as raw_append_data:
-            convert_append_data = json.load(raw_append_data)
-            tmp = {"paymentx": {"amount": amount,"money": 210,"date": date,"reason": info}}
-            convert_append_data["paymentx"] = tmp
-            #raw_append_data.write(json.dump(convert_append_data, raw_append_data, indent=4))
-            convert_append_data.update(convert_append_data, indent=4)
-            json.dump(convert_append_data, raw_append_data)
-    
+        # with open(r'../user/'+ self.lower_name +'/data.json', 'r+') as raw_append_data:
+        #     convert_append_data = json.load(raw_append_data)
+        #     tmp = {"paymentx": {"amount": amount,"money": 210,"date": date,"reason": info}}
+        #     convert_append_data["paymentx"] = tmp
+        #     #raw_append_data.write(json.dump(convert_append_data, raw_append_data, indent=4))
+        #     convert_append_data.update(convert_append_data, indent=4)
+        #     json.dump(convert_append_data, raw_append_data)
+        add_to_tabel(self.lower_name, [amount, date, info])
+
+    def print_data(self):
+        print_tabel(self)
+
     def append_data_sql(self, amount, date, info):
         pass
 
