@@ -7,14 +7,10 @@ from data_processing.prove_valid import valid_user
 
 schriftart = "Microsoft YaHei UI Light"
 
-global world_user
-world_user = User('Admin')
-world_user.load_user()
 
-global admin_boo
-admin_boo = False
-
-def tmp_open_win():
+def tmp_open_win(un):
+    world_user = User(un)
+    world_user.load_user()
     open_win(world_user)
 
 
@@ -37,7 +33,7 @@ def open_login():
         if valid_user(username, password):
             window.destroy()
             time.sleep(0.5)
-            tmp_open_win()
+            tmp_open_win(username)
         else:
             invalid_label = Label(window, text='No valid inputs')
             invalid_label.pack()

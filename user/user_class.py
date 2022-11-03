@@ -65,7 +65,7 @@ class User:
         #     #raw_append_data.write(json.dump(convert_append_data, raw_append_data, indent=4))
         #     convert_append_data.update(convert_append_data, indent=4)
         #     json.dump(convert_append_data, raw_append_data)
-        add_to_tabel(self.lower_name, [amount, date, info])
+        add_to_tabel(self.lower_name, (amount, date, info))
 
     def print_data(self):
         print_tabel(self)

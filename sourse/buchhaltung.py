@@ -27,4 +27,5 @@ def show_new_plot():
     #make_plot(1, 1, None)
     return None
 
-open_login()
+if __name__ == '__main__':
+    open_login()

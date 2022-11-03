@@ -1,5 +1,4 @@
 from tkinter import *
-from urllib.parse import uses_relative
 from user.user_class import surch
 from user.user_class import User
 from windows.main_window import open_win
