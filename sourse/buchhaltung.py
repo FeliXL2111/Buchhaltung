@@ -23,9 +23,5 @@ class Time_thread(threading.Thread):
 #wait_t = Time_thread(1, 'wait')
 
 
-def show_new_plot():
-    #make_plot(1, 1, None)
-    return None
-
 if __name__ == '__main__':
     open_login()

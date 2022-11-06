@@ -7,6 +7,7 @@ from windows.profile_window import open_profile
 from plots.plot import make_plot
 import threading
 import time
+from sourse.sql_probe import *
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user
@@ -109,7 +110,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     date_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     date_in.pack(pady=5)
-    date_in.insert(0, 'Date')
+    date_in.insert(0, 'Date (Day_Month_Year)')
 
     info_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     info_in.pack(pady=5)
@@ -123,7 +124,12 @@ def open_win(user, xxxx = None, yyyy = None):
         info = info_in.get()
         info_in.delete(0, END)
         print(amount, date, info)
-        user.append_data_json(amount, date, info)
+        date_split = date.split('_')
+        # user.append_data_json(amount, date, info)
+        # create_table(user)
+        add_to_tabel(user, (amount, 200, int(date_split[0]), int(date_split[1]), int(date_split[2]), info))
+        print_tabel(user)
+
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
         # placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
