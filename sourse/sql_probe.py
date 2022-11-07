@@ -17,13 +17,13 @@ def print_tabel(user):
 
 
 
-def create_table_admin():
+def create_table_admin(tmp):
     with sqlite3.connect('user/admin/sql_data.db') as database:
         database.execute("CREATE TABLE data (amount float, bankkonto float, day int, month int, year int, info text)")
     
-def add_to_tabel_admin(atribure_list):
+def add_to_tabel_admin(atribure_tuple):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute(f"INSERT INTO data VALUES {atribure_list}")
+        database.execute(f"INSERT INTO data VALUES {atribure_tuple}")
 
 def print_tabel_admin():
     with sqlite3.connect('user/admin/sql_data.db') as database:
@@ -45,7 +45,12 @@ if __name__ == '__main__':
             tmp = input('Name des table')
             create_table_admin(tmp)
         if sql_que == 'att':
-            tmp = input('')
+            amount = float(input('amount'))
+            bankkonto = float(input('bankkonto'))
+            day = int(input('day'))
+            month = int(input('month'))
+            year = int(input('year'))
+            info = str(input('info'))
             add_to_tabel_admin()
         if sql_que == 'pt':
             print_tabel_admin()
