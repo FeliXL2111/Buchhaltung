@@ -44,7 +44,7 @@ if __name__ == '__main__':
         if sql_que == 'ct':
             tmp = input('Name des table')
             create_table_admin(tmp)
-        if sql_que == 'att':
+        elif sql_que == 'att':
             amount = float(input('amount'))
             bankkonto = float(input('bankkonto'))
             day = int(input('day'))
@@ -52,11 +52,11 @@ if __name__ == '__main__':
             year = int(input('year'))
             info = str(input('info'))
             add_to_tabel_admin()
-        if sql_que == 'pt':
+        elif sql_que == 'pt':
             print_tabel_admin()
-        if sql_que == 'dft':
+        elif sql_que == 'dft':
             delete_from_table_admin()
-        if sql_que == 'anc':
+        elif sql_que == 'anc':
             add_new_colum_admin()
-        if sql_que == 'quit':
+        elif sql_que == 'quit':
             break
