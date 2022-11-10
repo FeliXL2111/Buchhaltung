@@ -19,7 +19,7 @@ def print_tabel(user):
 
 def create_table_admin(tablename):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute(f"CREATE TABLE {tablename} (amount float, bankkonto float, day int, month int, year int, info text)")
+        database.execute(f"CREATE TABLE {tablename} (amount float, bankkonto float, day int, month int, year int, info text, full_year text, transsaction_id int)")
     
 def add_to_tabel_admin(atribure_list):
     with sqlite3.connect('user/admin/sql_data.db') as database:
@@ -63,7 +63,7 @@ if __name__ == '__main__':
             month = int(input('month '))
             year = int(input('year '))
             info = input('info ')
-            full_date = input('full_date ')
+            full_date = str(year) + '_' + str(month) +'_' + str(day)
             
             add_to_tabel_admin((amount, bankkonto, day, month, year, info, full_date, id))
         elif sql_que == 'pt':
