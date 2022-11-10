@@ -17,26 +17,31 @@ def print_tabel(user):
 
 
 
-def create_table_admin(tmp):
+def create_table_admin(tablename):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute("CREATE TABLE data (amount float, bankkonto float, day int, month int, year int, info text)")
+        database.execute(f"CREATE TABLE {tablename} (amount float, bankkonto float, day int, month int, year int, info text)")
     
-def add_to_tabel_admin(atribure_tuple):
+def add_to_tabel_admin(atribure_list):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute(f"INSERT INTO data VALUES {atribure_tuple}")
+        database.execute(f"INSERT INTO data VALUES {atribure_list}")
 
-def print_tabel_admin():
+def print_tabel_admin(tablename):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        for i in database.execute("select * from data"):
+        for i in database.execute(f"select * from {tablename}"):
             print(i)
 
 def delete_from_table_admin():
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute("delete from data WHERE day = 2 AND amount = 20")
+        database.execute("delete from data WHERE amount = 100")
 
 def add_new_colum_admin():
     with sqlite3.connect('user/admin/sql_data.db') as database:
         database.execute("ALTER TABLE data ADD transsaction_id int")
+
+def last_bankkonto(n):
+    with sqlite3.connect('user/admin/sql_data.db') as database:
+        for i in database.execute(f'select bankkonto from data Where transsaction_id = {n}'):
+            return i
 
 if __name__ == '__main__':
     while True:
@@ -44,16 +49,26 @@ if __name__ == '__main__':
         if sql_que == 'ct':
             tmp = input('Name des table')
             create_table_admin(tmp)
-        elif sql_que == 'att':
-            amount = float(input('amount'))
-            bankkonto = float(input('bankkonto'))
-            day = int(input('day'))
-            month = int(input('month'))
-            year = int(input('year'))
-            info = str(input('info'))
-            add_to_tabel_admin()
+        if sql_que == 'att':
+            id = int(input('id '))
+            if id == None:
+                id = 300
+            amount = float(input('amount '))
+            if id -1 <= 0:
+                bankkonto = amount
+            else:
+                lb = last_bankkonto(id-1)
+                bankkonto = amount + float(lb[0])
+            day = int(input('day '))
+            month = int(input('month '))
+            year = int(input('year '))
+            info = input('info ')
+            full_date = input('full_date ')
+            
+            add_to_tabel_admin((amount, bankkonto, day, month, year, info, full_date, id))
         elif sql_que == 'pt':
-            print_tabel_admin()
+            tmp = input('tablename ')
+            print_tabel_admin(tmp)
         elif sql_que == 'dft':
             delete_from_table_admin()
         elif sql_que == 'anc':
