@@ -30,18 +30,21 @@ def print_tabel_admin(tablename):
         for i in database.execute(f"select * from {tablename}"):
             print(i)
 
-def delete_from_table_admin():
+def delete_from_table_admin(n):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        database.execute("delete from data WHERE amount = 100")
+        database.execute(f"delete from data WHERE transsaction_id = {n}")
 
 def add_new_colum_admin():
     with sqlite3.connect('user/admin/sql_data.db') as database:
         database.execute("ALTER TABLE data ADD transsaction_id int")
 
-def last_bankkonto(n):
+def last_bankkonto(n, wts):
     with sqlite3.connect('user/admin/sql_data.db') as database:
-        for i in database.execute(f'select bankkonto from data Where transsaction_id = {n}'):
+        for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
             return i
+
+def last_id():
+    pass
 
 if __name__ == '__main__':
     while True:
@@ -51,13 +54,14 @@ if __name__ == '__main__':
             create_table_admin(tmp)
         if sql_que == 'att':
             id = int(input('id '))
+            r_id = last_id() + 1
             if id == None:
                 id = 300
             amount = float(input('amount '))
-            if id -1 <= 0:
+            if id - 1 <= 0:
                 bankkonto = amount
             else:
-                lb = last_bankkonto(id-1)
+                lb = last_bankkonto(id-1, 'bankkonto')
                 bankkonto = amount + float(lb[0])
             day = int(input('day '))
             month = int(input('month '))
@@ -70,7 +74,8 @@ if __name__ == '__main__':
             tmp = input('tablename ')
             print_tabel_admin(tmp)
         elif sql_que == 'dft':
-            delete_from_table_admin()
+            n = input('id ')
+            delete_from_table_admin(n)
         elif sql_que == 'anc':
             add_new_colum_admin()
         elif sql_que == 'quit':
