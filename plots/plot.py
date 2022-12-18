@@ -22,7 +22,7 @@ def make_plot(user, beginn = None, end = None):
 
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:
         for i in database.execute("select * from data"):
-            x.append(i[2])
+            x.append(i[7])
             y.append(i[0])
 
     tmp_last_plot = user.plot

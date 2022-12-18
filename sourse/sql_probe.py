@@ -43,8 +43,10 @@ def last_bankkonto(n, wts):
         for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
             return i
 
-def last_id():
-    pass
+def last_id(n, wts):
+    with sqlite3.connect('user/admin/sql_data.db') as database:
+        for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
+            return i
 
 if __name__ == '__main__':
     while True:
@@ -54,7 +56,7 @@ if __name__ == '__main__':
             create_table_admin(tmp)
         if sql_que == 'att':
             id = int(input('id '))
-            r_id = last_id() + 1
+            r_id = last_id(id-1, 'bankkonto') + 1
             if id == None:
                 id = 300
             amount = float(input('amount '))
