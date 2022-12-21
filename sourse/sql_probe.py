@@ -18,35 +18,35 @@ def print_tabel(user):
 
 
 def create_table_admin(tablename):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         database.execute(f"CREATE TABLE {tablename} (amount float, bankkonto float, day int, month int, year int, info text, full_year text, transsaction_id int)")
     
 def add_to_tabel_admin(atribure_list):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         database.execute(f"INSERT INTO data VALUES {atribure_list}")
 
 def print_tabel_admin(tablename):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         for i in database.execute(f"select * from {tablename}"):
             print(i)
 
 def delete_from_table_admin(n):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         database.execute(f"delete from data WHERE transsaction_id = {n}")
 
 def add_new_colum_admin():
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         database.execute("ALTER TABLE data ADD transsaction_id int")
 
-def last_bankkonto(n, wts):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
+def last_bankkonto_admin(n, wts):
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
             return i
 
-def last_id(n, wts):
-    with sqlite3.connect('user/admin/sql_data.db') as database:
-        for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
-            return i
+def last_id_admin(wts):
+    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
+        for i in database.execute(f'select MAX({wts}) from data'):
+            return i[0]
 
 if __name__ == '__main__':
     while True:
@@ -56,14 +56,15 @@ if __name__ == '__main__':
             create_table_admin(tmp)
         if sql_que == 'att':
             id = int(input('id '))
-            r_id = last_id(id-1, 'bankkonto') + 1
+            r_id = last_id_admin('transsaction_id') + 1
+            print(r_id)
             if id == None:
                 id = 300
             amount = float(input('amount '))
             if id - 1 <= 0:
                 bankkonto = amount
             else:
-                lb = last_bankkonto(id-1, 'bankkonto')
+                lb = last_bankkonto_admin(id-1, 'bankkonto')
                 bankkonto = amount + float(lb[0])
             day = int(input('day '))
             month = int(input('month '))

@@ -4,7 +4,9 @@
     },
     "bar":{
         "profile": "Profil",
-        "settings": "Einstellungen"
+        "settings": "Einstellungen",
+        "accoverview": "Meine Konten",
+        "all_entries": "Alle Einträge"
     },
     "buttons":{
         "save": "Speichern",

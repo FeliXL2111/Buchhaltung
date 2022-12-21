@@ -4,6 +4,8 @@ from tkinter.font import *
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
+from windows.accoverview_window import open_accoverview
+from windows.all_entries_window import open_all_entries
 from plots.plot import make_plot
 import threading
 import time
@@ -17,6 +19,12 @@ def open_win(user, xxxx = None, yyyy = None):
 
     def tmp_open_profile():
         open_profile(global_user)
+
+    def tmp_open_accoverview():
+        open_accoverview(global_user)
+
+    def tmp_open_all_entries():
+        open_all_entries(global_user)
 
     def tmp_make_plot():
         make_plot(global_user)
@@ -36,6 +44,8 @@ def open_win(user, xxxx = None, yyyy = None):
         lang_main_header = lang_data["headers"]["main_header"]
         lang_bar_profile = lang_data["bar"]["profile"]
         lang_bar_settings = lang_data["bar"]["settings"]
+        lang_bar_kontooverview = lang_data["bar"]["accoverview"]
+        lang_bar_all_prints = lang_data["bar"]["all_entries"]
         lang_buttons_save = lang_data["buttons"]["save"]
         lang_buttons_plot = lang_data["buttons"]["plot"]
 
@@ -89,6 +99,17 @@ def open_win(user, xxxx = None, yyyy = None):
     trennung2 = Frame(leiste, width=220, height=5, bg='#202124')
     trennung2.place(relx=0.1, rely=0.12)
 
+    acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_accoverview)
+    acc_overview.place(relx=0.1, rely=0.13)
+
+    trennung3 = Frame(leiste, width=220, height=5, bg='#202124')
+    trennung3.place(relx=0.1, rely=0.15)
+
+    all_entries = Button(leiste, text=lang_bar_all_prints, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
+    all_entries.place(relx=0.1, rely=0.16)
+
+
+
 
     ###############################################################################################################
     '''
@@ -125,9 +146,11 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
         date_split = date.split('_')
+        li = last_id_admin('transsaction_id') + 1
         # user.append_data_json(amount, date, info)
         # create_table(user)
-        add_to_tabel(user, (amount, 200, int(date_split[0]), int(date_split[1]), int(date_split[2]), info))
+        lk = last_bankkonto_admin(li - 1, 'kontostand') + amount
+        add_to_tabel(user, (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, li))
         print_tabel(user)
 
 

@@ -4,7 +4,9 @@
     },
     "bar":{
         "profile": "Profile",
-        "settings": "Settings"
+        "settings": "Settings",
+        "accoverview": "My Accounts",
+        "all_entries": "All Entries"
     },
     "buttons":{
         "save": "Save",
