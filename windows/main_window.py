@@ -1,6 +1,7 @@
 import json
 from tkinter import *
 from tkinter.font import *
+# from ttk import *
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
@@ -164,8 +165,12 @@ def open_win(user, xxxx = None, yyyy = None):
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0)
 
-    placeholder_l = Label(button_frame, text='Gespeichert', bg='#202124', fg='#202124')
-    placeholder_l.grid(column=1, row=0)
+    v = ['Acc 1', 'Acc 2']
+    vs = StringVar(window)
+    vs.set('Acc 1')
+
+    acc_switch = OptionMenu(button_frame, vs,*v) #, bg='#202124', fg='#202124'
+    acc_switch.grid(column=1, row=0)
 
     plot_image = PhotoImage(file=r'../user/'+ user.lower_name +'/'+ user.plot+'.png')
     l_photo = Label(middel_frame, image=plot_image)
@@ -174,7 +179,7 @@ def open_win(user, xxxx = None, yyyy = None):
         tmp_make_plot()
         time.sleep(0.1)
         print('plot erfolgreich gebildet')
-        time.sleep(0.3)
+        time.sleep(0.1)
         con_path = r'../user/'+ user.lower_name + '/'+user.plot+'.png'
         plot_image_conf = PhotoImage(file=con_path)
         l_photo.config(image=plot_image_conf)
