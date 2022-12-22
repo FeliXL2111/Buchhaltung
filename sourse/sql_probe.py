@@ -41,7 +41,7 @@ def add_new_colum_admin():
 def last_bankkonto_admin(n, wts):
     with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
-            return i
+            return i[0]
 
 def last_id_admin(wts):
     with sqlite3.connect(r'../user/admin/sql_data.db') as database:

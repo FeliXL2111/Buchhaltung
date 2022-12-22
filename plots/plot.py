@@ -34,10 +34,11 @@ def make_plot(user, beginn = None, end = None):
     plt.plot(x, y)
     path = r'../user/'+ user_path +'/'+ tmp_last_plot+'.png'
     
-
+    print('ok 1')
     plt.savefig(path)     
     plt.close()
 
+    print('ok 2')
     user.save_plot(tmp_last_plot)
     user.plot = tmp_last_plot
     print(f'last: {tmp_last_plot}, {user.plot}')

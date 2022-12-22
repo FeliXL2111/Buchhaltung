@@ -1,7 +1,7 @@
 import json
 from tkinter import *
 from tkinter.font import *
-# from ttk import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 from windows.setting_window import open_settings
 from windows.profile_window import open_profile
@@ -139,7 +139,7 @@ def open_win(user, xxxx = None, yyyy = None):
     info_in.insert(0, 'Info')
 
     def save_input():
-        amount = amount_in.get()
+        amount = int(amount_in.get())
         amount_in.delete(0, END)
         date = date_in.get()
         date_in.delete(0, END)
@@ -150,7 +150,7 @@ def open_win(user, xxxx = None, yyyy = None):
         li = last_id_admin('transsaction_id') + 1
         # user.append_data_json(amount, date, info)
         # create_table(user)
-        lk = last_bankkonto_admin(li - 1, 'kontostand') + amount
+        lk = last_bankkonto_admin(li - 1, 'bankkonto') + amount
         add_to_tabel(user, (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, li))
         print_tabel(user)
 
@@ -163,14 +163,22 @@ def open_win(user, xxxx = None, yyyy = None):
 
     save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=save_input)
     # label.pack(side='left', expand=True, padx=10)
-    save_button.grid(column=0, row=0)
+    save_button.grid(column=0, row=0, padx=5)
 
     v = ['Acc 1', 'Acc 2']
-    vs = StringVar(window)
-    vs.set('Acc 1')
+    # vs = StringVar(window)
+    # vs.set('Acc 1')
 
-    acc_switch = OptionMenu(button_frame, vs,*v) #, bg='#202124', fg='#202124'
-    acc_switch.grid(column=1, row=0)
+    # acc_switch = OptionMenu(button_frame, vs,*v) #, bg='#202124', fg='#202124'
+    # acc_switch.grid(column=1, row=0)
+
+    acc_selection_box = ttk.Combobox(button_frame, values=v)
+    acc_selection_box.grid(column=1, row=0, padx=5)
+
+    k_oder_a = ['Konto', 'Ausgaben/Einnahmen']
+
+    acc_selection_box = ttk.Combobox(button_frame, values=k_oder_a)
+    acc_selection_box.grid(column=2, row=0, padx=5)
 
     plot_image = PhotoImage(file=r'../user/'+ user.lower_name +'/'+ user.plot+'.png')
     l_photo = Label(middel_frame, image=plot_image)
@@ -179,7 +187,7 @@ def open_win(user, xxxx = None, yyyy = None):
         tmp_make_plot()
         time.sleep(0.1)
         print('plot erfolgreich gebildet')
-        time.sleep(0.1)
+        time.sleep(0.3)
         con_path = r'../user/'+ user.lower_name + '/'+user.plot+'.png'
         plot_image_conf = PhotoImage(file=con_path)
         l_photo.config(image=plot_image_conf)
@@ -189,7 +197,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot)
     # h_button.pack(side='right', expand=True,)                                                         lambda: threading.Thread(target=show_new_plot()).start()
-    plot_button.grid(column=2, row=0)
+    plot_button.grid(column=3, row=0)
 
     graph_frame = Frame(master=middel_frame)
     graph_frame.pack()
