@@ -1,5 +1,5 @@
 from tkinter import *
-from user.user_class import surch
+from passwort_manager.surch import surch
 from user.user_class import User
 from windows.main_window import open_win
 import time
@@ -9,7 +9,7 @@ schriftart = "Microsoft YaHei UI Light"
 def open_new_user():
     window = Tk()
     window.title('Login')
-    window.iconbitmap(r'..\plots\icon.ico')
+    window.iconbitmap(r'../pic/icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 

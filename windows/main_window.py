@@ -31,14 +31,14 @@ def open_win(user, xxxx = None, yyyy = None):
         make_plot(global_user)
         return None
 
-    pathh = r'../user/' + user.lower_name +'/' +user.lower_name + '.json'
-    with open(pathh, 'r') as set:
-        user_set = json.load(set)
-        schriftart = "Microsoft YaHei UI Light"
-        # schriftart = user_set["font"]
-        tmp = user_set["user"]["language"]
+    def reload():
+        window.destroy()
+        time.sleep(0.2)
+        open_win(global_user)
+
+    schriftart = "Microsoft YaHei UI Light"
         
-    lang_path = r'../settings/language/' + tmp + '.json'
+    lang_path = r'../settings/language/' + user.lang + '/main_window.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)
@@ -57,7 +57,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     window = Tk()
     window.title(lang_main_header)
-    window.iconbitmap(r'../plots\icon.ico')
+    window.iconbitmap(r'../pic/icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 
@@ -78,7 +78,7 @@ def open_win(user, xxxx = None, yyyy = None):
     ## logo= PhotoImage(file=r'C:\Users\Felix\VS Code Projekts\Buchhaltung\undraw_Investing_re_bov7.png')
     width = 268
     height = 193
-    img = Image.open(r"../plots\undraw_Investing_re_bov7.png")
+    img = Image.open(r"../pic/undraw_Investing_re_bov7.png")
     img = img.resize((width,height), Image.Resampling.LANCZOS)
     photoImg =  ImageTk.PhotoImage(img)
     ## logo.subsample(40, 40)
@@ -108,6 +108,9 @@ def open_win(user, xxxx = None, yyyy = None):
 
     all_entries = Button(leiste, text=lang_bar_all_prints, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
     all_entries.place(relx=0.1, rely=0.16)
+
+    all_entries = Button(leiste, text='Reload', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
+    all_entries.place(relx=0.1, rely=0.19)
 
 
 
@@ -165,14 +168,13 @@ def open_win(user, xxxx = None, yyyy = None):
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0, padx=5)
 
-    v = ['Acc 1', 'Acc 2']
     # vs = StringVar(window)
     # vs.set('Acc 1')
 
     # acc_switch = OptionMenu(button_frame, vs,*v) #, bg='#202124', fg='#202124'
     # acc_switch.grid(column=1, row=0)
 
-    acc_selection_box = ttk.Combobox(button_frame, values=v)
+    acc_selection_box = ttk.Combobox(button_frame, values=user.accs)
     acc_selection_box.grid(column=1, row=0, padx=5)
 
     k_oder_a = ['Konto', 'Ausgaben/Einnahmen']

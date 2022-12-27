@@ -3,30 +3,38 @@ from tkinter.font import *
 import json
 
 def open_profile(user):
-    with open(r'../user/'+user.lower_name+'/'+user.lower_name+'.json', 'r') as set:
-        settings = json.load(set)
-        schriftart = "Microsoft YaHei UI Light"
-        # schriftart = settings["font"]
-        tmp = settings["user"]["language"]
+    schriftart = "Microsoft YaHei UI Light"
         
-    lang_path = r'../settings/language/' + tmp + '.json'
+    lang_path = r'../settings/language/' + user.lang + '/profile_window.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)
-        lang_main_header = lang_data["headers"]["main_header"]
-        lang_bar_profile = lang_data["bar"]["profile"]
-        lang_bar_settings = lang_data["bar"]["settings"]
+        lang_bar_settings = lang_data["headers"]["main_header"]
     
     pro_win = Tk()
     pro_win.title(lang_bar_settings)
-    pro_win.iconbitmap(r'../plots\setting.ico')
+    pro_win.iconbitmap(r'../pic/setting.ico')
     pro_win.geometry('1000x500')
     pro_win.configure(bg='#202124')
 
     middel_frame= Frame(pro_win, width=300, height=900, bg='#202124')
     middel_frame.pack(fill='y')
 
-    tmp2 = Label(middel_frame, text='Suiiii', font=(schriftart, 11))
-    tmp2.pack()
+    username = Label(middel_frame, text=user.name, font=(schriftart, 11))
+    username.pack()
+
+    rank = Label(middel_frame, text=user.rank, font=(schriftart, 11))
+    rank.pack()
+
+    
+
+    switch_password_entry = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
+    switch_password_entry.pack()
+
+    def tmp_fun():
+        pass #to do
+
+    switch_password_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=tmp_fun)
+    switch_password_button.pack()
 
     pro_win.mainloop()

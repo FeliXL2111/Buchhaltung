@@ -6,7 +6,8 @@
         "profile": "Profile",
         "settings": "Settings",
         "accoverview": "My Accounts",
-        "all_entries": "All Entries"
+        "all_entries": "All Entries",
+        "accounts": "Accounts"
     },
     "buttons":{
         "save": "Save",
@@ -16,8 +17,5 @@
         "amount": "Amount",
         "date": "Date",
         "info": "Info"
-    },
-    "profil":{
-        "überschrift": "Profil"
     }
 }

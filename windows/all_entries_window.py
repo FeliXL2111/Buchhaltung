@@ -7,7 +7,7 @@ def open_all_entries(user):
     schriftart = "Microsoft YaHei UI Light"
     all_ent_win = Tk()
     all_ent_win.title('All Entries')
-    all_ent_win.iconbitmap(r'../plots\setting.ico')
+    all_ent_win.iconbitmap(r'../pic/setting.ico')
     all_ent_win.geometry('1000x500')
     all_ent_win.configure(bg='#202124')
 

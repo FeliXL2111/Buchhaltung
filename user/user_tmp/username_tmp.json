@@ -5,7 +5,8 @@
         "lower_name": "user_tmp",
         "password": "",
         "language": "english",
-        "rank": "user"
+        "rank": "user",
+        "accs": ["main"]
     },
     "data_stats": {
         "last_plot": "first_plot",

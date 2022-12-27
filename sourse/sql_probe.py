@@ -26,7 +26,7 @@ def add_to_tabel_admin(atribure_list):
         database.execute(f"INSERT INTO data VALUES {atribure_list}")
 
 def print_tabel_admin(tablename):
-    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'user/admin/sql_data.db') as database:
         for i in database.execute(f"select * from {tablename}"):
             print(i)
 
@@ -41,7 +41,7 @@ def add_new_colum_admin():
 def last_bankkonto_admin(n, wts):
     with sqlite3.connect(r'../user/admin/sql_data.db') as database:
         for i in database.execute(f'select {wts} from data Where transsaction_id = {n}'):
-            return i[0]
+            return i
 
 def last_id_admin(wts):
     with sqlite3.connect(r'../user/admin/sql_data.db') as database:
@@ -56,7 +56,7 @@ if __name__ == '__main__':
             create_table_admin(tmp)
         if sql_que == 'att':
             id = int(input('id '))
-            r_id = last_id_admin('transsaction_id') + 1
+            r_id = last_id_admin('transsaction_id')[0] + 1
             print(r_id)
             if id == None:
                 id = 300

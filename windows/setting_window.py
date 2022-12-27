@@ -19,7 +19,7 @@ def open_settings(user):
     
     sett_win = Tk()
     sett_win.title(lang_bar_settings)
-    sett_win.iconbitmap(r'..\plots\setting.ico')
+    sett_win.iconbitmap(r'../pic/setting.ico')
     sett_win.geometry('1000x500')
     sett_win.configure(bg='#202124')
 

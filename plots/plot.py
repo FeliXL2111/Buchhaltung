@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import json
 import sqlite3
 
-global last
-last = 'path_sec'
-
 def make_plot(user, beginn = None, end = None):
     a = beginn
     b= end
