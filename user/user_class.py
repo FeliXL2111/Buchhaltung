@@ -3,7 +3,8 @@ import webbrowser
 import os
 import time
 from passwort_manager.hash_imput import hash_in
-from sourse.sql_probe import add_to_tabel, create_table, print_tabel
+from sourse.sql_probe import add_to_tabel, create_acc_table,create_user_table, print_tabel
+from user.acc_class import Account
 
 
 class User:
@@ -14,7 +15,7 @@ class User:
         self.rank = None
         self.lang = None
         self.plot = None
-        self.accs = None
+        self.accs = []
 
     def load_user(self):
         with open(r'../user/'+ self.lower_name + '/' + self.lower_name +'.json') as directory:
@@ -24,6 +25,11 @@ class User:
         self.lang = user_data["user"]["language"]
         self.plot = user_data["data_stats"]["last_plot"]
         self.accs = user_data["user"]["accs"]
+
+    def save_user(self):
+        for i in self.accs:
+            i.save_acc()
+
 
     def load_tmp_for_user(self):
         os.makedirs(r'../user/'+ self.lower_name)
@@ -41,7 +47,8 @@ class User:
 
         time.sleep(0.3)
 
-        create_table(self)
+        create_user_table(self)
+        create_acc_table(self)
 
     def save_plot(self, last_plot):
         with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data:

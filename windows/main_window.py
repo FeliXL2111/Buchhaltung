@@ -49,6 +49,9 @@ def open_win(user, xxxx = None, yyyy = None):
         lang_bar_all_prints = lang_data["bar"]["all_entries"]
         lang_buttons_save = lang_data["buttons"]["save"]
         lang_buttons_plot = lang_data["buttons"]["plot"]
+        lang_in_amount = lang_data["inputs"]["amount"]
+        lang_in_date = lang_data["inputs"]["date"]
+        lang_in_info = lang_data["inputs"]["info"]
 
         # for section in lang_data:
         #     for trans in lang_data[section]:
@@ -131,15 +134,15 @@ def open_win(user, xxxx = None, yyyy = None):
 
     amount_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     amount_in.pack(pady=5)
-    amount_in.insert(0, 'Betrag')
+    amount_in.insert(0, lang_in_amount)
 
     date_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     date_in.pack(pady=5)
-    date_in.insert(0, 'Date (Day_Month_Year)')
+    date_in.insert(0, f'{lang_in_date} (Day_Month_Year)')
 
     info_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
     info_in.pack(pady=5)
-    info_in.insert(0, 'Info')
+    info_in.insert(0, lang_in_info)
 
     def save_input():
         amount = int(amount_in.get())

@@ -2,9 +2,15 @@ import sqlite3
 import os
 
 
-def create_table(user):
+def create_acc_table(user):
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:
-        database.execute("CREATE TABLE data (amount float, bankkonto float, day int, month int, year int, info text)")
+        database.execute("CREATE TABLE data (amount float, bankkonto float, day int, month int, year int, info text, full_year text, transsaction_id int)")
+
+def create_user_tabel(user):
+    with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:
+        database.execute("CREATE TABLE user (attribut text, values text, infos text)")
+        database.execute("CREATE TABLE accs (name text, created text)")
+
     
 def add_to_tabel(user, atribure_list):
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:

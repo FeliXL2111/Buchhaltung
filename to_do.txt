@@ -3,5 +3,7 @@ profil fenster erweitern
 all entries fenster verschönern
 acc fenster erweitern, backend aka. sql erstellen
 imports in allen dateien überprüpfen
-verbeseerung durch optimieren von spreichern und laden von dateien
+verbeseerung durch optimieren von speichern und laden von dateien
 programm dukumentation in OneNote
+passwort ändern implementieren
+ersetze user json durch user sql
