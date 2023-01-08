@@ -22,12 +22,9 @@ class User:
     
     
     def load_user(self):
-        with open(r'../user/'+ self.lower_name + '/' + self.lower_name +'.json') as directory:
-            user_data = json.load(directory)
-        self.rank = user_data["user"]["rank"]
+        self.rank = return_attribut(self, 'v', 'user', 'rank')[0]
         self.lang = return_attribut(self, 'v', 'user', 'lang')[0]
-        self.plot = user_data["data_stats"]["last_plot"]
-
+        self.plot = return_attribut(self, 'v', 'user', 'plot')[0]
         self.password = return_attribut(self, 'v', 'user', 'password')[0]
         accs = return_all_user_file(self, 'accs')
         print(accs, 'hier')
@@ -51,36 +48,18 @@ class User:
 
     def load_tmp_for_user(self):
         os.makedirs('../user/'+ self.lower_name)
-        f = open(r'../user/' + self.lower_name + '/' + self.lower_name + '.json', 'x')
-        f.close()
-        with open(r'../user/user_tmp/username_tmp.json', 'r') as tamplate:
-            data = json.load(tamplate)
-
-        time.sleep(0.3)
-
-        with open(r'../user/'+ self.lower_name+ '/'+ self.lower_name+'.json', 'r+') as user_json:
-            #vvv = json.load(user_json)
-            #vvv.update(data)
-            user_json.write(json.dumps(data, indent=4))
-
-        time.sleep(0.3)
 
         create_user_file(self)
         create_data_table(self)
         add_to_user(self, ('name', '0', '0'))
-        time.sleep(0.5)
-        print('bis add_to_user gekommen in user.load_tmp_for_user')
         add_to_user(self, ('lower_name', '0', '0'))
-        time.sleep(0.5)
         add_to_user(self, ('password', '0', '0'))
-        time.sleep(0.5)
         add_to_user(self, ('lang', 'english', '0'))
         add_to_user(self, ('rank', 'user', '0'))
         add_to_user(self, ('accs', '1', '0'))
-        print('bis add_to_user gekommen in user.load_tmp_for_user')
         add_to_user(self, ('plot', 'first_plot', '0'))
 
-        add_to_accs(self, ('main', '01_01_2023'))
+        add_to_accs(self, ('main', '01_01_2023', 'real'))
 
         make_plot(self)
 

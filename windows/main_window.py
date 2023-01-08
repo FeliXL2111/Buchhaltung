@@ -146,7 +146,7 @@ def open_win(user, xxxx = None, yyyy = None):
     info_in.insert(0, lang_in_info)
 
     def save_input():
-        amount = int(amount_in.get())
+        amount = float(amount_in.get())
         amount_in.delete(0, END)
         date = date_in.get()
         date_in.delete(0, END)

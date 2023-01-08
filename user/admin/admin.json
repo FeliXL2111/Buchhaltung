@@ -1,15 +1,17 @@
 {
     "user": {
-        "datei": "user/admin/admin.json",
-        "name": "Admin",
-        "lower_name": "admin",
-        "password": "4eb4ee0e23c5f4248ea217e6c039aaffc159c8405eaeb8ad16b84bfeb9cd20cfdfe8b5aacaa326f801cd5c750c843617809d84e25e2655cb991041b7cf06a212",
+        "datei": "user/user_tmp/username_tmp.json",
+        "name": "user_tmp",
+        "lower_name": "user_tmp",
+        "password": "",
         "language": "english",
-        "rank": "admin",
-        "accs": ["main"]
+        "rank": "user",
+        "accs": [
+            "main"
+        ]
     },
     "data_stats": {
-        "last_plot": "first_plot",
+        "last_plot": "secon_plot",
         "start": 0,
         "end": 0
     }

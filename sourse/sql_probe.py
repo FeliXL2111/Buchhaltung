@@ -9,7 +9,7 @@ def create_data_table(user):
 def create_user_file(user):
     with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:
         database.execute("CREATE TABLE user (attribut text, v text, infos text)")
-        database.execute("CREATE TABLE accs (name text, created text)")
+        database.execute("CREATE TABLE accs (name text, created text, status text)")
 
     
 def add_to_table(user, atribure_list):
@@ -85,8 +85,8 @@ def delete_from_table_admin(n):
         database.execute(f"delete from data WHERE transsaction_id = {n}")
 
 def add_new_colum_admin():
-    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
-        database.execute("ALTER TABLE data ADD transsaction_id int")
+    with sqlite3.connect('user/felix/sql_data.db') as database:
+        database.execute("ALTER TABLE data ADD status text")
 
 def last_bankkonto_admin(n, column):
     with sqlite3.connect(r'../user/admin/sql_data.db') as database:
@@ -94,7 +94,7 @@ def last_bankkonto_admin(n, column):
             return i
 
 def last_id_admin(table):
-    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
+    with sqlite3.connect('../user/admin/sql_data.db') as database:
         for i in database.execute(f'select MAX({table}) from data'):
             return i[0]
 

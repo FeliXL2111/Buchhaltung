@@ -6,4 +6,4 @@ imports in allen dateien überprüpfen
 verbeseerung durch optimieren von speichern und laden von dateien
 programm dukumentation in OneNote
 passwort ändern implementieren
-ersetze user json durch user sql
+acc status erweitern
