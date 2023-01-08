@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter.font import *
 import json
-from sourse.sql_probe import last_id_admin, last_bankkonto_admin
+from sourse.sql_probe import last_id, last_bankkonto
 
 def open_all_entries(user):
     schriftart = "Microsoft YaHei UI Light"
@@ -11,12 +11,12 @@ def open_all_entries(user):
     all_ent_win.geometry('1000x500')
     all_ent_win.configure(bg='#202124')
 
-    li = last_id_admin('transsaction_id')
-    e1 = str(last_bankkonto_admin(li, '*'))
-    e2 = str(last_bankkonto_admin(li-1, '*'))
-    e3 = str(last_bankkonto_admin(li-2, '*'))
-    e4 = str(last_bankkonto_admin(li-3, '*'))
-    e5 = str(last_bankkonto_admin(li-4, '*'))
+    li = last_id(user, 'transsaction_id')
+    e1 = str(last_bankkonto(user, li, '*'))
+    e2 = str(last_bankkonto(user, li-1, '*'))
+    e3 = str(last_bankkonto(user, li-2, '*'))
+    e4 = str(last_bankkonto(user, li-3, '*'))
+    e5 = str(last_bankkonto(user, li-4, '*'))
 
     middel_frame = Frame(all_ent_win, width=300, height=900, bg='#202124')
     middel_frame.pack(fill='y')

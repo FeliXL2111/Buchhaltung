@@ -9,7 +9,7 @@ def open_settings(user):
         # schriftart = settings["font"]
         tmp = settings["user"]["language"]
         
-    lang_path = r'../settings/language/' + tmp + '.json'
+    lang_path = r'../settings/language/' + tmp + '/settings_window.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)

@@ -25,6 +25,7 @@ def open_win(user, xxxx = None, yyyy = None):
         open_accoverview(global_user)
 
     def tmp_open_all_entries():
+        # lambda: threading.Thread(target=open_all_entries(global_user)).start()
         open_all_entries(global_user)
 
     def tmp_make_plot():
@@ -153,12 +154,17 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
         date_split = date.split('_')
-        li = last_id_admin('transsaction_id') + 1
+        li_tmp = last_id(user, 'transsaction_id')
+        print(li_tmp, type(li_tmp))
+        id = last_id(user, 'transsaction_id') + 1
         # user.append_data_json(amount, date, info)
         # create_table(user)
-        lk = last_bankkonto_admin(li - 1, 'bankkonto') + amount
-        add_to_tabel(user, (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, li))
-        print_tabel(user)
+        if id == 1:
+            lk = amount
+        else:
+            lk = last_bankkonto(user, id - 1, 'bankkonto')[0] + amount
+        add_to_table(user, (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, id))
+        print_table(user)
 
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
@@ -177,7 +183,7 @@ def open_win(user, xxxx = None, yyyy = None):
     # acc_switch = OptionMenu(button_frame, vs,*v) #, bg='#202124', fg='#202124'
     # acc_switch.grid(column=1, row=0)
 
-    acc_selection_box = ttk.Combobox(button_frame, values=user.accs)
+    acc_selection_box = ttk.Combobox(button_frame, values=user.accs_names)
     acc_selection_box.grid(column=1, row=0, padx=5)
 
     k_oder_a = ['Konto', 'Ausgaben/Einnahmen']

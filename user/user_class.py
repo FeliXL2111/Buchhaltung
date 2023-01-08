@@ -3,8 +3,9 @@ import webbrowser
 import os
 import time
 from passwort_manager.hash_imput import hash_in
-from sourse.sql_probe import add_to_tabel, create_acc_table,create_user_table, print_tabel
+from sourse.sql_probe import *
 from user.acc_class import Account
+from plots.plot import make_plot
 
 
 class User:
@@ -16,23 +17,40 @@ class User:
         self.lang = None
         self.plot = None
         self.accs = []
+        self.accs_names = []
 
+    
+    
     def load_user(self):
         with open(r'../user/'+ self.lower_name + '/' + self.lower_name +'.json') as directory:
             user_data = json.load(directory)
-        self.password = user_data["user"]["password"]
         self.rank = user_data["user"]["rank"]
-        self.lang = user_data["user"]["language"]
+        self.lang = return_attribut(self, 'v', 'user', 'lang')[0]
         self.plot = user_data["data_stats"]["last_plot"]
-        self.accs = user_data["user"]["accs"]
+
+        self.password = return_attribut(self, 'v', 'user', 'password')[0]
+        accs = return_all_user_file(self, 'accs')
+        print(accs, 'hier')
+        for i in accs:
+            print(i)
+            self.accs.append(Account(self, i[0], i[1]))
+        print(self.accs)
+        tmp_list = []
+        for i in self.accs:
+            print(i)
+            tmp_list.append(i.name)
+        print(tmp_list)
+        self.accs_names = tmp_list
+
 
     def save_user(self):
-        for i in self.accs:
-            i.save_acc()
+        # for i in self.accs:
+        #     i.save_acc(self)
+        change_user(self, 'password', self.password)
 
 
     def load_tmp_for_user(self):
-        os.makedirs(r'../user/'+ self.lower_name)
+        os.makedirs('../user/'+ self.lower_name)
         f = open(r'../user/' + self.lower_name + '/' + self.lower_name + '.json', 'x')
         f.close()
         with open(r'../user/user_tmp/username_tmp.json', 'r') as tamplate:
@@ -47,8 +65,24 @@ class User:
 
         time.sleep(0.3)
 
-        create_user_table(self)
-        create_acc_table(self)
+        create_user_file(self)
+        create_data_table(self)
+        add_to_user(self, ('name', '0', '0'))
+        time.sleep(0.5)
+        print('bis add_to_user gekommen in user.load_tmp_for_user')
+        add_to_user(self, ('lower_name', '0', '0'))
+        time.sleep(0.5)
+        add_to_user(self, ('password', '0', '0'))
+        time.sleep(0.5)
+        add_to_user(self, ('lang', 'english', '0'))
+        add_to_user(self, ('rank', 'user', '0'))
+        add_to_user(self, ('accs', '1', '0'))
+        print('bis add_to_user gekommen in user.load_tmp_for_user')
+        add_to_user(self, ('plot', 'first_plot', '0'))
+
+        add_to_accs(self, ('main', '01_01_2023'))
+
+        make_plot(self)
 
     def save_plot(self, last_plot):
         with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data:
@@ -68,10 +102,17 @@ class User:
             json.dump(convert_append_data, raw_append_data)
 
     def append_data_sql(self, amount, date, info):
-        add_to_tabel(self.lower_name, (amount, date, info))
+        add_to_table(self.lower_name, (amount, date, info))
 
     def print_data(self):
-        print_tabel(self)
+        print_table(self)
+
+    def return_acc_names(self):
+            tmp_list = []
+            for i in self.accs:
+                tmp_list.append(i.name)
+            print(tmp_list)
+            return tmp_list
 
     
 

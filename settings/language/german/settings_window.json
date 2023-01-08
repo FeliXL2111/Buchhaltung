@@ -2,7 +2,8 @@
     "headers":{
         "main_header": "Einstellungen"
     },
-    "other":{
-        "ok": "ok"
+    "bar":{
+        "profile": "ok",
+        "settings": "ok"
     }
 }

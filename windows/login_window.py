@@ -17,7 +17,7 @@ def tmp_open_win(u):
 def open_login():
     window = Tk()
     window.title('Login')
-    window.iconbitmap(r'../pic/icon.ico')
+    window.iconbitmap('../pic/icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 
