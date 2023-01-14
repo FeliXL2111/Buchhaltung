@@ -1,9 +1,9 @@
 import json
 import webbrowser
 import os
-import time
+from datetime import date
 from passwort_manager.hash_imput import hash_in
-from sourse.sql_probe import *
+from sql.sql_probe import *
 from user.acc_class import Account
 from plots.plot import make_plot
 
@@ -30,7 +30,7 @@ class User:
         print(accs, 'hier')
         for i in accs:
             print(i)
-            self.accs.append(Account(self, i[0], i[1]))
+            self.accs.append(Account(self, i[0], i[1], i[2]))
         print(self.accs)
         tmp_list = []
         for i in self.accs:
@@ -64,11 +64,7 @@ class User:
         make_plot(self)
 
     def save_plot(self, last_plot):
-        with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data:
-            dada = json.load(last_plot_data)
-            dada["data_stats"]["last_plot"] = last_plot
-        with open(r'../user/'+ self.lower_name +'/'+ self.lower_name +'.json', 'r+') as last_plot_data_2:
-            json.dump(dada, last_plot_data_2, indent=4)
+        change_user(self, 'plot', last_plot)
 
 
     def append_data_json(self, amount, date, info):
@@ -83,15 +79,26 @@ class User:
     def append_data_sql(self, amount, date, info):
         add_to_table(self.lower_name, (amount, date, info))
 
+    def new_acc(self, new_name, status):
+        for i in self.accs_names:
+            if i != new_name:
+                today = str(date.today()).split('-')
+                t_l = f'{today[2]}_{today[1]}_{today[0]}'
+                add_to_accs(self, (new_name, t_l, status))
+                self.accs.append(Account(self, new_name, t_l, status))
+            else:
+                print('nope, user_class.new_acc zeile 87')
+                break
+
     def print_data(self):
         print_table(self)
 
     def return_acc_names(self):
-            tmp_list = []
-            for i in self.accs:
-                tmp_list.append(i.name)
-            print(tmp_list)
-            return tmp_list
+        tmp_list = []
+        for i in self.accs:
+            tmp_list.append(i.name)
+        print(tmp_list)
+        return tmp_list
 
     
 

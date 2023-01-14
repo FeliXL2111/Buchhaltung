@@ -12,8 +12,10 @@ def open_accoverview(user):
     def tmp_open_acc_window():
         open_acc_window(tmp_user, acc_selection_box.get())
 
-    def tmp_open_delete_acc_window():
-        open_delete_acc_window(tmp_user, None)
+    def tmp_user_new_acc_window():
+        tmp_user.new_acc(acc_selection_box.get(), real_virtual_selection_box.get())
+        acc_selection_box.delete(0, END)
+        real_virtual_selection_box.delete(0, END)
 
     lang_path = '../settings/language/' + tmp_user.lang + '/accoverview_window.json'
 
@@ -34,8 +36,7 @@ def open_accoverview(user):
         # tmp_user_accs = tmp_user.accs.split('_')
         # accs_list.config(text=f'Your accounts: {tmp_user_accs}')
         # tmp_user.save_user()
-        new_acc_b = Button(middel_frame, text=new_acc_in.get(), font=(schriftart, 11), border=0, command=open_acc_window)
-        new_acc_b.pack(pady=0.5)
+        pass
 
     def delete():
         try:
@@ -47,15 +48,17 @@ def open_accoverview(user):
     middel_frame.pack(fill='y')
 
     acc_selection_box = ttk.Combobox(middel_frame, values=user.accs_names)
-    acc_selection_box.pack(padx=0.5)
- 
-    new_acc_in = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
-    new_acc_in.pack(pady=0.5)
+    acc_selection_box.pack(pady=0.5)
 
-    new_acc_button = Button(middel_frame, text='Edit', font=(schriftart, 11), border=0, command=tmp_open_acc_window)
+    r_v = ['real', 'virtual']
+
+    real_virtual_selection_box = ttk.Combobox(middel_frame, values=r_v)
+    real_virtual_selection_box.pack(pady=0.5)
+
+    edit_acc_button = Button(middel_frame, text='Edit', font=(schriftart, 11), border=0, command=tmp_open_acc_window)
+    edit_acc_button.pack(pady=0.5)
+
+    new_acc_button = Button(middel_frame, text='New Acc', font=(schriftart, 11), border=0, command=tmp_user_new_acc_window)
     new_acc_button.pack(pady=0.5)
-
-    delet_acc_button = Button(middel_frame, text='Delete', font=(schriftart, 11), border=0, command=tmp_open_delete_acc_window)
-    delet_acc_button.pack(pady=0.5)
 
     acc_win.mainloop()

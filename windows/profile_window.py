@@ -21,20 +21,20 @@ def open_profile(user):
     middel_frame.pack(fill='y')
 
     username = Label(middel_frame, text=user.name, font=(schriftart, 11))
-    username.pack()
+    username.pack(pady=0.5)
 
     rank = Label(middel_frame, text=user.rank, font=(schriftart, 11))
-    rank.pack()
+    rank.pack(pady=0.5)
 
     
 
     switch_password_entry = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
-    switch_password_entry.pack()
+    switch_password_entry.pack(pady=0.5)
 
     def tmp_fun():
         pass #to do
 
     switch_password_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=tmp_fun)
-    switch_password_button.pack()
+    switch_password_button.pack(pady=0.5)
 
     pro_win.mainloop()

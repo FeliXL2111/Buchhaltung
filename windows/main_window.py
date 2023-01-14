@@ -10,7 +10,7 @@ from windows.all_entries_window import open_all_entries
 from plots.plot import make_plot
 import threading
 import time
-from sourse.sql_probe import *
+from sql.sql_probe import *
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user
@@ -34,12 +34,12 @@ def open_win(user, xxxx = None, yyyy = None):
 
     def reload():
         window.destroy()
-        time.sleep(0.2)
+        time.sleep(0.1)
         open_win(global_user)
 
     schriftart = "Microsoft YaHei UI Light"
         
-    lang_path = r'../settings/language/' + user.lang + '/main_window.json'
+    lang_path = '../settings/language/' + user.lang + '/main_window.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)

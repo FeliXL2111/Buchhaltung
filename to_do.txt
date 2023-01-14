@@ -7,3 +7,4 @@ verbeseerung durch optimieren von speichern und laden von dateien
 programm dukumentation in OneNote
 passwort ändern implementieren
 acc status erweitern
+font / json überarbeiten für jedes Fenster und in den json files

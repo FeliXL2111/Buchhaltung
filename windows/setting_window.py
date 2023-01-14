@@ -3,22 +3,15 @@ from tkinter.font import *
 import json
 
 def open_settings(user):
-    with open(r'../user/'+user.lower_name+'/'+user.lower_name+'.json', 'r') as set:
-        settings = json.load(set)
-        schriftart = "Microsoft YaHei UI Light"
-        # schriftart = settings["font"]
-        tmp = settings["user"]["language"]
-        
-    lang_path = r'../settings/language/' + tmp + '/settings_window.json'
+    schriftart = "Microsoft YaHei UI Light"    
+    lang_path = '../settings/language/' + user.lang + '/settings_window.json'
 
     with open(lang_path, 'r') as lang:
         lang_data = json.load(lang)
         lang_main_header = lang_data["headers"]["main_header"]
-        lang_bar_profile = lang_data["bar"]["profile"]
-        lang_bar_settings = lang_data["bar"]["settings"]
     
     sett_win = Tk()
-    sett_win.title(lang_bar_settings)
+    sett_win.title(lang_main_header)
     sett_win.iconbitmap(r'../pic/setting.ico')
     sett_win.geometry('1000x500')
     sett_win.configure(bg='#202124')
