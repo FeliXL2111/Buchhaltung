@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import json
 import sqlite3
 
-def make_plot(user, beginn = None, end = None):
+def make_plot(user, kind, beginn = None, end = None):
     a = beginn
     b= end
     x = []
@@ -20,7 +20,7 @@ def make_plot(user, beginn = None, end = None):
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:
         for i in database.execute("select * from data"):
             x.append(i[6])
-            y.append(i[0])
+            y.append(i[kind])
 
     tmp_last_plot = user.plot
     if tmp_last_plot == 'first_plot':

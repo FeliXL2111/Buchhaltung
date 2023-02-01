@@ -28,8 +28,8 @@ def open_win(user, xxxx = None, yyyy = None):
         # lambda: threading.Thread(target=open_all_entries(global_user)).start()
         open_all_entries(global_user)
 
-    def tmp_make_plot():
-        make_plot(global_user)
+    def tmp_make_plot(kind):
+        make_plot(global_user, kind)
         return None
 
     def reload():
@@ -188,14 +188,19 @@ def open_win(user, xxxx = None, yyyy = None):
 
     k_oder_a = ['Konto', 'Ausgaben/Einnahmen']
 
-    acc_selection_box = ttk.Combobox(button_frame, values=k_oder_a)
-    acc_selection_box.grid(column=2, row=0, padx=5)
+    k_oder_a_selection_box = ttk.Combobox(button_frame, values=k_oder_a)
+    k_oder_a_selection_box.grid(column=2, row=0, padx=5)
 
     plot_image = PhotoImage(file=r'../user/'+ user.lower_name +'/'+ user.plot+'.png')
     l_photo = Label(middel_frame, image=plot_image)
 
     def show_new_plot():
-        tmp_make_plot()
+        k_oder_aa = k_oder_a_selection_box.get()
+        if k_oder_aa == 'Konto':
+            kind = 1
+        elif k_oder_aa == 'Ausgaben/Einnahmen':
+            kind = 0
+        tmp_make_plot(kind)
         time.sleep(0.1)
         print('plot erfolgreich gebildet')
         time.sleep(0.3)
