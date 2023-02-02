@@ -10,7 +10,7 @@ def open_accoverview(user):
     tmp_user = user
 
     def tmp_open_acc_window():
-        open_acc_window(tmp_user, acc_selection_box.get())
+        open_acc_window(tmp_user, tmp_user.return_acc(acc_selection_box.get()))
 
     def tmp_user_new_acc_window():
         tmp_user.new_acc(acc_selection_box.get(), real_virtual_selection_box.get())

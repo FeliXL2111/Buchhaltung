@@ -100,6 +100,11 @@ class User:
         print(tmp_list)
         return tmp_list
 
+    def return_acc(self, acc_name):
+        for acc in self.accs:
+            if acc.name == acc_name:
+                return acc
+        return False
     
 
 
