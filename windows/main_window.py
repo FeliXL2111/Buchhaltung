@@ -35,6 +35,7 @@ def open_win(user, xxxx = None, yyyy = None):
     def reload():
         window.destroy()
         time.sleep(0.1)
+        global_user.load_user()
         open_win(global_user)
 
     schriftart = "Microsoft YaHei UI Light"

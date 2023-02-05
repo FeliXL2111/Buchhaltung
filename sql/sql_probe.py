@@ -6,8 +6,8 @@ def create_data_table(user):
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:
         database.execute("CREATE TABLE data (amount float, bankkonto float, day int, month int, year int, info text, full_year text, transsaction_id int)")
 
-def create_user_file(user):
-    with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:
+def create_user_file(user, name):
+    with sqlite3.connect('../user/'+user.lower_name+'/'+name+'.db') as database:
         database.execute("CREATE TABLE user (attribut text, v text, infos text)")
         database.execute("CREATE TABLE accs (name text, created text, status text)")
 
@@ -15,6 +15,10 @@ def create_user_file(user):
 def add_to_table(user, atribure_list):
     with sqlite3.connect('../user/'+user.lower_name+'/sql_data.db') as database:
         database.execute(f"INSERT INTO data VALUES {atribure_list}")
+
+def delete_from_table(user, n):
+    with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:
+        database.execute(f"delete from accs WHERE name = '{n}'")
 
 def add_to_user(user, atribure_list):
     with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:

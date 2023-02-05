@@ -8,3 +8,6 @@ programm dukumentation in OneNote
 passwort ändern implementieren
 acc status erweitern
 font / json überarbeiten für jedes Fenster und in den json files
+change database, funktionen um database zu erstellen, einzuschreiben und zu lesen
+update erkenner und ausführer
+acc eigene file.db, muss sich mit erstellen und löschen wenn acc gelöscht oder erstellt

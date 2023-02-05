@@ -2,20 +2,20 @@ import sqlite3
 
 
 def create_table_admin(tablename):
-    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
+    with sqlite3.connect('../user/admin/sql_data.db') as database:
         database.execute(f"CREATE TABLE {tablename} (amount float, bankkonto float, day int, month int, year int, info text, full_year text, transsaction_id int)")
     
 def add_to_tabel_admin(atribure_list):
-    with sqlite3.connect('user/felix/felix.db') as database:
+    with sqlite3.connect('../user/felix/felix.db') as database:
         database.execute(f"INSERT INTO accs VALUES ('main', '01_01_2023', 'real')")
 
 def print_tabel_admin(tablename):
-    with sqlite3.connect(r'user/admin/admin.db') as database:
+    with sqlite3.connect('../user/felix/felix.db') as database:
         for i in database.execute(f"select * from {tablename}"):
             print(i)
 
 def delete_from_table_admin(n):
-    with sqlite3.connect('user/felix/felix.db') as database:
+    with sqlite3.connect('../user/felix/felix.db') as database:
         database.execute(f"delete from accs WHERE name = '{n}'")
 
 def add_new_colum_admin():

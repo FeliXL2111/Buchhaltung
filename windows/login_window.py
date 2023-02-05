@@ -23,7 +23,7 @@ def open_login():
 
     def tmp_open_new_user():
         window.destroy()
-        time.sleep(0.3)
+        time.sleep(0.1)
         open_new_user()
 
     def tmp_imput_prove():
@@ -34,7 +34,7 @@ def open_login():
             userrr.load_user()
             if valid_user(userrr, username, password):
                 window.destroy()
-                time.sleep(0.3)
+                time.sleep(0.1)
                 tmp_open_win(userrr)
             else:
                 invalid_label = Label(window, text='No valid inputs')

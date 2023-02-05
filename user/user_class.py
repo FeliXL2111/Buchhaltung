@@ -26,6 +26,8 @@ class User:
         self.lang = return_attribut(self, 'v', 'user', 'lang')[0]
         self.plot = return_attribut(self, 'v', 'user', 'plot')[0]
         self.password = return_attribut(self, 'v', 'user', 'password')[0]
+        self.accs = []
+        self.accs_names = []
         accs = return_all_user_file(self, 'accs')
         print(accs, 'hier')
         for i in accs:
@@ -48,8 +50,9 @@ class User:
 
     def load_tmp_for_user(self):
         os.makedirs('../user/'+ self.lower_name)
+        create_user_file(self, 'changes')
 
-        create_user_file(self)
+        create_user_file(self, self.lower_name)
         create_data_table(self)
         add_to_user(self, ('name', '0', '0'))
         add_to_user(self, ('lower_name', '0', '0'))
@@ -82,13 +85,14 @@ class User:
     def new_acc(self, new_name, status):
         for i in self.accs_names:
             if i != new_name:
-                today = str(date.today()).split('-')
-                t_l = f'{today[2]}_{today[1]}_{today[0]}'
-                add_to_accs(self, (new_name, t_l, status))
-                self.accs.append(Account(self, new_name, t_l, status))
+                pass
             else:
                 print('nope, user_class.new_acc zeile 87')
-                break
+                return 1
+        today = str(date.today()).split('-')
+        t_l = f'{today[2]}_{today[1]}_{today[0]}'
+        add_to_accs(self, (new_name, t_l, status))
+        self.accs.append(Account(self, new_name, t_l, status))
 
     def print_data(self):
         print_table(self)
@@ -105,6 +109,12 @@ class User:
             if acc.name == acc_name:
                 return acc
         return False
+
+    def update(self):
+        pass
+
+    def save(self):
+        pass
     
 
 
