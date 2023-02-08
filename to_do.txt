@@ -4,10 +4,12 @@ all entries fenster verschönern
 acc fenster erweitern, backend aka. sql erstellen
 imports in allen dateien überprüpfen
 verbeseerung durch optimieren von speichern und laden von dateien
-programm dukumentation in OneNote
+programm dukumentation in OneNote/Latex, auf website hochladen? überleg nochmal
 passwort ändern implementieren
-acc status erweitern
 font / json überarbeiten für jedes Fenster und in den json files
 change database, funktionen um database zu erstellen, einzuschreiben und zu lesen
 update erkenner und ausführer
 acc eigene file.db, muss sich mit erstellen und löschen wenn acc gelöscht oder erstellt
+alle stellen suchen in denen mit der sql_data gearbeitet wurde, ein parameter mehr => name von der db
+überlegen wo die daten von unterschiedlichen konten gespeichert werden
+überlegen ob user methode die attribute in db speiert oder immer an der stelle im code direkt 

@@ -6,11 +6,11 @@ from sql.sql_probe import last_id, last_bankkonto
 def open_all_entries(user):
 
     def back():
-        e1 = str(last_bankkonto(user, li, '*'))
-        e2 = str(last_bankkonto(user, li-1, '*'))
-        e3 = str(last_bankkonto(user, li-2, '*'))
-        e4 = str(last_bankkonto(user, li-3, '*'))
-        e5 = str(last_bankkonto(user, li-4, '*'))
+        e1 = str(last_bankkonto(user, 'main', li, '*'))
+        e2 = str(last_bankkonto(user, 'main', li-1, '*'))
+        e3 = str(last_bankkonto(user, 'main', li-2, '*'))
+        e4 = str(last_bankkonto(user, 'main', li-3, '*'))
+        e5 = str(last_bankkonto(user, 'main', li-4, '*'))
 
         entrie1.config(text=e2)
         entrie2.config(text=e3)
@@ -25,12 +25,12 @@ def open_all_entries(user):
     all_ent_win.geometry('1000x500')
     all_ent_win.configure(bg='#202124')
 
-    li = last_id(user, 'transsaction_id')
-    e1 = str(last_bankkonto(user, li, '*'))
-    e2 = str(last_bankkonto(user, li-1, '*'))
-    e3 = str(last_bankkonto(user, li-2, '*'))
-    e4 = str(last_bankkonto(user, li-3, '*'))
-    e5 = str(last_bankkonto(user, li-4, '*'))
+    li = last_id(user, 'main', 'transsaction_id')
+    e1 = str(last_bankkonto(user, 'main', li, '*'))
+    e2 = str(last_bankkonto(user, 'main', li-1, '*'))
+    e3 = str(last_bankkonto(user, 'main', li-2, '*'))
+    e4 = str(last_bankkonto(user, 'main', li-3, '*'))
+    e5 = str(last_bankkonto(user, 'main', li-4, '*'))
 
     middel_frame = Frame(all_ent_win, width=300, height=900, bg='#202124')
     middel_frame.pack(fill='y')

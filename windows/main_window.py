@@ -164,7 +164,7 @@ def open_win(user, xxxx = None, yyyy = None):
             lk = amount
         else:
             lk = last_bankkonto(user, id - 1, 'bankkonto')[0] + amount
-        add_to_table(user, (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, id))
+        add_to_table(user, acc_selection_box.get(), (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, id))
         print_table(user)
 
 

@@ -53,7 +53,7 @@ class User:
         create_user_file(self, 'changes')
 
         create_user_file(self, self.lower_name)
-        create_data_table(self)
+        create_data_table(self, 'main')
         add_to_user(self, ('name', '0', '0'))
         add_to_user(self, ('lower_name', '0', '0'))
         add_to_user(self, ('password', '0', '0'))
