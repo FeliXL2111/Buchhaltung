@@ -155,17 +155,17 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
         date_split = date.split('_')
-        li_tmp = last_id(user, 'transsaction_id')
+        li_tmp = last_id(user, acc_selection_box.get(), 'transsaction_id',)
         print(li_tmp, type(li_tmp))
-        id = last_id(user, 'transsaction_id') + 1
+        id = last_id(user, acc_selection_box.get(),'transsaction_id') + 1
         # user.append_data_json(amount, date, info)
         # create_table(user)
         if id == 1:
             lk = amount
         else:
-            lk = last_bankkonto(user, id - 1, 'bankkonto')[0] + amount
+            lk = last_bankkonto(user, acc_selection_box.get(),id - 1, 'bankkonto')[0] + amount
         add_to_table(user, acc_selection_box.get(), (amount, lk, int(date_split[0]), int(date_split[1]), int(date_split[2]), info, date, id))
-        print_table(user)
+        print_table(user, acc_selection_box.get())
 
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
@@ -201,7 +201,7 @@ def open_win(user, xxxx = None, yyyy = None):
             kind = 1
         elif k_oder_aa == 'Ausgaben/Einnahmen':
             kind = 0
-        tmp_make_plot(kind)
+        tmp_make_plot(kind, acc_selection_box.get())
         time.sleep(0.1)
         print('plot erfolgreich gebildet')
         time.sleep(0.3)

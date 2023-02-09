@@ -64,7 +64,7 @@ class User:
 
         add_to_accs(self, ('main', '01_01_2023', 'real'))
 
-        make_plot(self)
+        make_plot(self, "Konto", 'main')
 
     def save_plot(self, last_plot):
         change_user(self, 'plot', last_plot)
@@ -94,8 +94,8 @@ class User:
         add_to_accs(self, (new_name, t_l, status))
         self.accs.append(Account(self, new_name, t_l, status))
 
-    def print_data(self):
-        print_table(self)
+    def print_data(self, name):
+        print_table(self, name)
 
     def return_acc_names(self):
         tmp_list = []
