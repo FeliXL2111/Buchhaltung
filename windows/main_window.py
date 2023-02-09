@@ -28,8 +28,8 @@ def open_win(user, xxxx = None, yyyy = None):
         # lambda: threading.Thread(target=open_all_entries(global_user)).start()
         open_all_entries(global_user)
 
-    def tmp_make_plot(kind):
-        make_plot(global_user, kind)
+    def tmp_make_plot(kind, name):
+        make_plot(global_user, kind, name)
         return None
 
     def reload():
