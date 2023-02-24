@@ -23,6 +23,7 @@ class Thread(threading.Thread):
 
 def backend_funk():
     #sys.cmd(bachend.exe)
+    pass
 
 if __name__ == '__main__':
     window_thread = Thread(1, 'window', open_login)
