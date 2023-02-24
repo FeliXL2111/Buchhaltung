@@ -1,4 +1,4 @@
-multithreading
+(multithreading) nur noch überlegen wie kommunieziert wird, vllt pointer
 profil fenster erweitern
 all entries fenster verschönern
 acc fenster erweitern, backend aka. sql erstellen
@@ -17,3 +17,6 @@ alle stellen suchen in denen mit der sql_data gearbeitet wurde, ein parameter me
 durch gängiges oder angepasst an transaktion chart
 go server ausetzen
 token und id wird als json übertragen
+c++ grafik libery downloaden
+c++ sqlite libery downloaden
+backend in c++ schreiben

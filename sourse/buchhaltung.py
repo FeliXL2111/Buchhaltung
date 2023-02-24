@@ -11,7 +11,7 @@ from windows.login_window import open_login
 
 # import customtkinter
 
-class Time_thread(threading.Thread):
+class Thread(threading.Thread):
     def __init__(self, id, name, funk):
         threading.Thread.__init__(self)
         self.id = id
@@ -21,8 +21,11 @@ class Time_thread(threading.Thread):
     def run(self):
         self.funk()
 
-#wait_t = Time_thread(1, 'wait')
-
+def backend_funk():
+    #sys.cmd(bachend.exe)
 
 if __name__ == '__main__':
-    open_login()
+    window_thread = Thread(1, 'window', open_login)
+    backend_thread = Thread(2, 'backend', backend_funk)
+    window_thread.run()
+    backend_thread.run()
