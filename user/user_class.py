@@ -115,6 +115,9 @@ class User:
 
     def save(self):
         pass
+
+    def server_sync(self):
+        pass
     
 
 
