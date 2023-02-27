@@ -22,8 +22,8 @@ class Threaddd(threading.Thread):
         self.funk()
 
 def backend_funk():
-    os.system("cd ../backend")
-    os.system("backend.exe")
+    # os.system("cd ../backend")
+    os.system(r"..\backend\backend.exe")
 
 if __name__ == '__main__':
     # window_thread = Threaddd(1, 'window', open_login)

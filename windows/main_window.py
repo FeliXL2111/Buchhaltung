@@ -38,6 +38,9 @@ def open_win(user, xxxx = None, yyyy = None):
         global_user.load_user()
         open_win(global_user)
 
+    def server():
+        print(os.system("curl http://192.168.2.119:8008/books"))
+
     schriftart = "Microsoft YaHei UI Light"
         
     lang_path = '../settings/language/' + user.lang + '/main_window.json'
@@ -114,9 +117,11 @@ def open_win(user, xxxx = None, yyyy = None):
     all_entries = Button(leiste, text=lang_bar_all_prints, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
     all_entries.place(relx=0.1, rely=0.16)
 
-    all_entries = Button(leiste, text='Reload', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
-    all_entries.place(relx=0.1, rely=0.19)
+    Reload_button = Button(leiste, text='Reload', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
+    Reload_button.place(relx=0.1, rely=0.19)
 
+    connect_to_server = Button(leiste, text='Server', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=server)
+    connect_to_server.place(relx=0.1, rely=0.21)
 
 
 
