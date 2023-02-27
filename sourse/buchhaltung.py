@@ -29,5 +29,5 @@ if __name__ == '__main__':
     # window_thread = Threaddd(1, 'window', open_login)
     backend_thread = Threaddd(2, 'backend', backend_funk)
     # window_thread.start()
-    backend_thread.start()
+    # backend_thread.start()
     open_login()
