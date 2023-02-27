@@ -20,3 +20,4 @@ token und id wird als json übertragen
 c++ grafik libery downloaden
 c++ sqlite libery downloaden
 backend in c++ schreiben
+server muss sich auch updaten, muss zur version vom User passen
