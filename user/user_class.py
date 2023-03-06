@@ -119,6 +119,16 @@ class User:
     def server_sync(self):
         pass
     
+    def make_pdf(self, name = 'main'):
+        x = []
+        with sqlite3.connect('../user/'+self.lower_name+'/'+name+'.db') as database:
+            for i in database.execute("select * from data"):
+                x.append([i[0],i[1],i[6]])
+        with open('list.txt', 'w') as file:
+            for n in x:
+                for m in n:
+                    file.writelines(m)
+        os.system('pdflatex ..user/'+self.lower_name+'/summery.tex')
 
 
 
