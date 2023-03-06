@@ -61,7 +61,7 @@ def open_accoverview(user):
     new_acc_button = Button(middel_frame, text='New Acc', font=(schriftart, 11), border=0, command=tmp_user_new_acc_window)
     new_acc_button.pack(pady=0.5)
 
-    pdf_button = Button(middel_frame, text='New Acc', font=(schriftart, 11), border=0, command=user.make_pdf)
-    pdf_button.pack(pady=0.5)
+    pdf_button = Button(middel_frame, text='Make pdf', font=(schriftart, 11), border=0, command=user.make_pdf)
+    pdf_button.pack(pady=2, padx=4)
 
     acc_win.mainloop()

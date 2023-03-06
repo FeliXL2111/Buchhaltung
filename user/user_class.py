@@ -50,6 +50,7 @@ class User:
 
     def load_tmp_for_user(self):
         os.makedirs('../user/'+ self.lower_name)
+        os.makedirs('../user/'+self.lower_name+'/pdf')
         create_user_file(self, 'changes')
 
         create_user_file(self, self.lower_name)
@@ -123,13 +124,27 @@ class User:
         x = []
         with sqlite3.connect('../user/'+self.lower_name+'/'+name+'.db') as database:
             for i in database.execute("select * from data"):
-                x.append([i[0],i[1],i[6]])
-        with open('../user/'+self.lower_name+'/list.txt', 'w') as file:
+                x.append([i[0],i[1],i[2],i[3],i[4],i[5],i[6]])
+        print(x)
+        with open('../user/user_tmp/pdf_tmp.tex', 'r') as f:
+            tmp = f.read()
+        with open('../user/'+self.lower_name+'/pdf/list.tex', 'w') as file:
+            file.write(tmp)
             for n in x:
-                for m in n:
-                    file.writelines(m)
-        os.system('pdflatex ..user/'+self.lower_name+'/summery.tex')
-
+                file.writelines(f'{str(n[0])} & {str(n[1])} & {str(n[2])} & {str(n[3])} & {str(n[4])} & {str(n[5])} & {str(n[0])} \\\ \n')
+                file.writelines('\hline\n')
+                # for m in n:
+                #     file.writelines(str(m))
+            file.writelines('\end'+'{'+'tabular}\n')
+            file.writelines('\end'+'{'+'table}\n')
+            file.writelines('\end'+'{'+'dokument}')
+        print(os.getcwd())
+        e = {os.path.abspath('../user/'+self.lower_name+'/pdf')}
+        os.chdir(os.path.abspath('../user/'+self.lower_name+'/pdf'))
+        print(str(e))
+        os.system(f'latex  -recorder  "list.tex"') #{os.path.abspath('..')}
+        print(os.path, 'ok')
+        print(os.path.abspath('..'))
 
 
 # webbrowser.open(r'C:\Users\Felix\VS Code Projekts\Buchhaltung\web\buch_in_web.html', new=new)
