@@ -4,19 +4,31 @@ import json
 from sql.sql_probe import last_id, last_bankkonto
 
 def open_all_entries(user):
+    global li
+    li = last_id(user, 'main', 'transsaction_id')
 
     def back():
-        e1 = str(last_bankkonto(user, 'main', li, '*'))
-        e2 = str(last_bankkonto(user, 'main', li-1, '*'))
-        e3 = str(last_bankkonto(user, 'main', li-2, '*'))
-        e4 = str(last_bankkonto(user, 'main', li-3, '*'))
-        e5 = str(last_bankkonto(user, 'main', li-4, '*'))
-
-        entrie1.config(text=e2)
-        entrie2.config(text=e3)
+        global li
+        li -= 1
+        change_tabel(li)
 
     def forward():
-        pass
+        global li
+        li += 1
+        change_tabel(li)
+
+    def change_tabel(li_tmp):
+        e1 = str(last_bankkonto(user, 'main', li_tmp, '*'))
+        e3 = str(last_bankkonto(user, 'main', li_tmp-2, '*'))
+        e4 = str(last_bankkonto(user, 'main', li_tmp-3, '*'))
+        e5 = str(last_bankkonto(user, 'main', li_tmp-4, '*'))
+        e2 = str(last_bankkonto(user, 'main', li_tmp-1, '*'))
+
+        entrie1.config(text=e1)
+        entrie2.config(text=e2)
+        entrie3.config(text=e3)
+        entrie4.config(text=e4)
+        entrie5.config(text=e5)
 
     schriftart = "Microsoft YaHei UI Light"
     all_ent_win = Tk()
@@ -25,7 +37,7 @@ def open_all_entries(user):
     all_ent_win.geometry('1000x500')
     all_ent_win.configure(bg='#202124')
 
-    li = last_id(user, 'main', 'transsaction_id')
+    
     e1 = str(last_bankkonto(user, 'main', li, '*'))
     e2 = str(last_bankkonto(user, 'main', li-1, '*'))
     e3 = str(last_bankkonto(user, 'main', li-2, '*'))
