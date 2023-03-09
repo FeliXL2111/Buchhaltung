@@ -138,9 +138,10 @@ class User:
                 # for m in n:
                 #     file.writelines(str(m))
             file.writelines('\end'+'{'+'tabular}\n')
-            file.writelines('\end'+'{'+'table}\n')
+            # file.writelines('\end'+'{'+'table}\n')
             file.writelines('\section'+'{'+'Infos}\n')
             file.writelines('Here are intersting Inforamtions\n')
+            file.writelines('\end'+'{'+'center}\n')
             file.writelines('\end'+'{'+'document}')
         print(os.getcwd())
         e = {os.path.abspath('../user/'+self.lower_name+'/pdf')}

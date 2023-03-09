@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.5)  9 MAR 2023 19:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.5)  9 MAR 2023 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,10 +6,10 @@ entering extended mode
 **"c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex"
 (c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-07> (C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extbook.cls
-Document Class: extbook 1999/01/07 v1.4a NON-Standard LaTeX document class
-(C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
-File: bk12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+L3 programming layer <2023-02-07> (C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extarticle.cls
+Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
+(C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 ) (C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/base\exscale.sty
 Package: exscale 2018/09/24 v2.1i Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
@@ -20,20 +20,19 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \big@size=\dimen140
 )
 \c@part=\count185
-\c@chapter=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen141
 ) (C:\Users\Felix\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count194
+\l__color_backend_stack_int=\count193
 \l__pdf_internal_box=\box51
 ) (pdf_tmp.aux)
 \openout1 = `pdf_tmp.aux'.
@@ -53,13 +52,11 @@ LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7> on input line 9.
- [1
-
-
-{C:/Users/Felix/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(Font)              <6> on input line 9.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <7> on input line 13.
+LaTeX Font Info:    External font `cmex7' loaded for size
+(Font)              <5> on input line 13.
 )
 ! Emergency stop.
 <*> ...ekts/Buchhaltung/user/user_tmp/pdf_tmp.tex"
@@ -68,11 +65,11 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 
  
 Here is how much of TeX's memory you used:
- 527 strings out of 476339
- 11787 string characters out of 5788120
+ 502 strings out of 476339
+ 11552 string characters out of 5788120
  1850340 words of memory out of 5000000
- 21017 multiletter control sequences out of 15000+600000
- 517739 words of font info for 51 fonts, out of 8000000 for 9000
+ 20994 multiletter control sequences out of 15000+600000
+ 516601 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,48p,268b,198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 42i,6n,48p,268b,194s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

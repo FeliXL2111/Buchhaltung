@@ -1,6 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1678386769 "c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex" "pdf_tmp.pdf" "pdf_tmp" 1678386769 2
-  "C:/Users/Felix/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1678031198 121421 986c656c18d5dae14116b93751df729f ""
+["pdflatex"] 1678390583 "c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex" "pdf_tmp.pdf" "pdf_tmp" 1678390583 2
   "C:/Users/Felix/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1678030948 23175797 e53dbd873258899415571354ab93d65b ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -16,13 +15,13 @@
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
-  "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/base/bk12.clo" 1669844196 8285 1b093a7880310fd335493621f5803fd7 ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/base/exscale.sty" 1669844196 2581 a44c6c0f51707a5175042cbf68bd39cc ""
-  "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/extsizes/extbook.cls" 947706120 23153 5d917d997215707297eb8e5ef8ea2fc1 ""
+  "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1669844196 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/extsizes/extarticle.cls" 947706120 20602 3112294ba237d94ce4a1502cfef3594f ""
   "C:/Users/Felix/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1673900822 30429 213676d4c7327a21d91ddaed900e7b81 ""
-  "c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex" 1678386767 353 0655e68ac7d7545b4b886d0d72b6d377 ""
-  "pdf_tmp.aux" 1678386769 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "pdf_tmp.tex" 1678386767 353 0655e68ac7d7545b4b886d0d72b6d377 ""
+  "c:/Users/Felix/VS Code Projekts/Buchhaltung/user/user_tmp/pdf_tmp.tex" 1678390581 344 4969c7ba406838610e044e176e2c0c8b ""
+  "pdf_tmp.aux" 1678390583 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "pdf_tmp.tex" 1678390581 344 4969c7ba406838610e044e176e2c0c8b ""
   (generated)
   "pdf_tmp.aux"
   "pdf_tmp.log"
