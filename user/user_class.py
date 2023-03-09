@@ -127,9 +127,11 @@ class User:
                 x.append([i[0],i[1],i[2],i[3],i[4],i[5],i[6]])
         print(x)
         with open('../user/user_tmp/pdf_tmp.tex', 'r') as f:
-            tmp = f.read()
+            tmp = f.readlines()
+        foo = r'\author'
+        tmp[3] = foo + '{'+self.name+'}\n'
         with open('../user/'+self.lower_name+'/pdf/list.tex', 'w') as file:
-            file.write(tmp)
+            file.writelines(tmp)
             for n in x:
                 file.writelines(f'{str(n[0])} & {str(n[1])} & {str(n[2])} & {str(n[3])} & {str(n[4])} & {str(n[5])} \\\ \n')
                 file.writelines('\hline\n')
@@ -137,7 +139,7 @@ class User:
                 #     file.writelines(str(m))
             file.writelines('\end'+'{'+'tabular}\n')
             file.writelines('\end'+'{'+'table}\n')
-            file.writelines('\subsection'+'{'+'Infos}\n')
+            file.writelines('\section'+'{'+'Infos}\n')
             file.writelines('Here are intersting Inforamtions\n')
             file.writelines('\end'+'{'+'document}')
         print(os.getcwd())
