@@ -131,18 +131,21 @@ class User:
         with open('../user/'+self.lower_name+'/pdf/list.tex', 'w') as file:
             file.write(tmp)
             for n in x:
-                file.writelines(f'{str(n[0])} & {str(n[1])} & {str(n[2])} & {str(n[3])} & {str(n[4])} & {str(n[5])} & {str(n[0])} \\\ \n')
+                file.writelines(f'{str(n[0])} & {str(n[1])} & {str(n[2])} & {str(n[3])} & {str(n[4])} & {str(n[5])} \\\ \n')
                 file.writelines('\hline\n')
                 # for m in n:
                 #     file.writelines(str(m))
             file.writelines('\end'+'{'+'tabular}\n')
             file.writelines('\end'+'{'+'table}\n')
-            file.writelines('\end'+'{'+'dokument}')
+            file.writelines('\subsection'+'{'+'Infos}\n')
+            file.writelines('Here are intersting Inforamtions\n')
+            file.writelines('\end'+'{'+'document}')
         print(os.getcwd())
         e = {os.path.abspath('../user/'+self.lower_name+'/pdf')}
         os.chdir(os.path.abspath('../user/'+self.lower_name+'/pdf'))
         print(str(e))
         os.system(f'latex  -recorder  "list.tex"') #{os.path.abspath('..')}
+        os.chdir(os.path.abspath('../../'))
         print(os.path, 'ok')
         print(os.path.abspath('..'))
 
