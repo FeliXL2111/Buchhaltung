@@ -22,10 +22,10 @@ class User:
     
     
     def load_user(self):
-        self.rank = return_attribut(self, 'v', 'user', 'rank')[0]
-        self.lang = return_attribut(self, 'v', 'user', 'lang')[0]
-        self.plot = return_attribut(self, 'v', 'user', 'plot')[0]
-        self.password = return_attribut(self, 'v', 'user', 'password')[0]
+        self.rank = return_attribut(self, 'v', 'user', 'rank')
+        self.lang = return_attribut(self, 'v', 'user', 'lang')
+        self.plot = return_attribut(self, 'v', 'user', 'plot')
+        self.password = return_attribut(self, 'v', 'user', 'password')
         self.accs = []
         self.accs_names = []
         accs = return_all_user_file(self, 'accs')

@@ -23,15 +23,15 @@ def add_new_colum_admin():
         database.execute("ALTER TABLE data ADD status text")
 
 def last_bankkonto_admin(n, column):
-    with sqlite3.connect(r'../user/admin/sql_data.db') as database:
+    with sqlite3.connect(r'../user/felix/main.db') as database:
         for i in database.execute(f'select {column} from data Where transsaction_id = {n}'):
-            return i
+            return i[0]
 
 def last_id_admin(table):
     with sqlite3.connect('../user/admin/sql_data.db') as database:
         for i in database.execute(f'select MAX({table}) from data'):
             return i[0]
-
+ 
 if __name__ == '__main__':
     while True:
         sql_que = input('Gib deine Aktion an: ')
@@ -65,5 +65,7 @@ if __name__ == '__main__':
             delete_from_table_admin(n)
         elif sql_que == 'anc':
             add_new_colum_admin()
+        elif sql_que == 'change':
+            print(last_bankkonto_admin('1', 'amount'))
         elif sql_que == 'quit':
             break

@@ -55,7 +55,7 @@ def return_all_user_file(user, table):
 def return_attribut(user, column, table, attribut):
     with sqlite3.connect('../user/'+user.lower_name+'/'+user.lower_name+'.db') as database:
         for i in database.execute(f"select {column} from {table} Where attribut = '{attribut}'"):
-            return i
+            return i[0]
 
 def last_bankkonto(user, name, n, column):
     with sqlite3.connect('../user/'+user.lower_name+'/'+name+'.db') as database:

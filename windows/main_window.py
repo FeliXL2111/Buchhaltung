@@ -39,7 +39,10 @@ def open_win(user, xxxx = None, yyyy = None):
         open_win(global_user)
 
     def server():
-        print(os.system("curl http://192.168.2.119:8008/books"))
+        try:
+            print(os.system("curl http://192.168.2.119:8008/books"))
+        except:
+            print('no connection')
 
     schriftart = "Microsoft YaHei UI Light"
         
