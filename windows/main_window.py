@@ -163,11 +163,11 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
         date_split = date.split('_')
-        li_tmp = last_id(user, acc_selection_box.get(), 'transsaction_id',)
+        li_tmp = last_id(user, user.return_acc(acc_selection_box.get()).name, 'transsaction_id',)
         print(li_tmp, type(li_tmp))
-        id = last_id(user, acc_selection_box.get(),'transsaction_id') + 1
+        id = last_id(user, user.return_acc(acc_selection_box.get()).name,'transsaction_id') + 1
         # user.append_data_json(amount, date, info)
-        # create_table(user)
+        # create_table(user) 
         if id == 1:
             lk = amount
         else:
