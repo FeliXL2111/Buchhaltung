@@ -12,8 +12,6 @@ from plots.plot import make_plot
 import threading
 import time
 from sql.sql_probe import *
-import http
-import requests
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user

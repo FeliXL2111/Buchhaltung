@@ -5,9 +5,13 @@ import requests
 
 def open_online_acc(user):
 
-    def server():
-        foo = requests.get("http://192.168.2.119:8008/user")
+    def getUser():
+        foo = requests.get(url="http://192.168.2.119:8008/user")
         print(foo.text)
+
+    def postNewUser():
+        list_foo = [4, 'pseudo_hash', user.lower_name]
+        requests.post(url="http://192.168.2.119:8008/newuser", data=list_foo)
 
     schriftart = "Microsoft YaHei UI Light"
         
@@ -32,12 +36,10 @@ def open_online_acc(user):
     rank = Label(middel_frame, text='Das könnte mal ein button sein', font=(schriftart, 11))
     rank.pack(pady=0.5)
 
-    
+    server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=getUser)
+    server_sync_button.pack(pady=0.5)
 
-    # switch_password_entry = Entry(middel_frame, width=40, font=('Consolas', 11), border=0)
-    # switch_password_entry.pack(pady=0.5)
-
-    server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=server)
+    server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=postNewUser)
     server_sync_button.pack(pady=0.5)
 
     online_win.mainloop()
