@@ -7,10 +7,13 @@ from windows.setting_window import open_settings
 from windows.profile_window import open_profile
 from windows.accoverview_window import open_accoverview
 from windows.all_entries_window import open_all_entries
+from windows.online_window import open_online_acc
 from plots.plot import make_plot
 import threading
 import time
 from sql.sql_probe import *
+import http
+import requests
 
 def open_win(user, xxxx = None, yyyy = None):
     global global_user
@@ -31,6 +34,9 @@ def open_win(user, xxxx = None, yyyy = None):
     def tmp_make_plot(kind, name):
         make_plot(global_user, kind, name)
         return None
+    
+    def tmp_open_online_acc():
+        open_online_acc(global_user)
 
     def reload():
         window.destroy()
@@ -38,11 +44,6 @@ def open_win(user, xxxx = None, yyyy = None):
         global_user.load_user()
         open_win(global_user)
 
-    def server():
-        try:
-            print(os.system("curl http://192.168.2.119:8008/books"))
-        except:
-            print('no connection')
 
     schriftart = "Microsoft YaHei UI Light"
         
@@ -123,7 +124,7 @@ def open_win(user, xxxx = None, yyyy = None):
     Reload_button = Button(leiste, text='Reload', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
     Reload_button.place(relx=0.1, rely=0.19)
 
-    connect_to_server = Button(leiste, text='Server', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=server)
+    connect_to_server = Button(leiste, text='Server', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_online_acc)
     connect_to_server.place(relx=0.1, rely=0.21)
 
 
@@ -163,8 +164,9 @@ def open_win(user, xxxx = None, yyyy = None):
         info_in.delete(0, END)
         print(amount, date, info)
         date_split = date.split('_')
-        li_tmp = last_id(user, user.return_acc(acc_selection_box.get()).name, 'transsaction_id',)
-        print(li_tmp, type(li_tmp))
+        # li_tmp = last_id(user, user.return_acc(acc_selection_box.get()).name, 'transsaction_id',)
+        # print(li_tmp, type(li_tmp))
+        #if user.return_acc_names() suche funktion in der getestet wird, ob ein name schon vorhanden ist
         id = last_id(user, user.return_acc(acc_selection_box.get()).name,'transsaction_id') + 1
         # user.append_data_json(amount, date, info)
         # create_table(user) 

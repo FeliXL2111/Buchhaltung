@@ -25,3 +25,5 @@ server muss sich auch updaten, muss zur version vom User passen
 pdflatex
 pdftex
 latex  -recorder  "tutorial.tex"
+
+'curl' http://192.168.2.119/8008/newuser
