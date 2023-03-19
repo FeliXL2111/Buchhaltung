@@ -26,4 +26,4 @@ pdflatex
 pdftex
 latex  -recorder  "tutorial.tex"
 
-'curl' http://192.168.2.119/8008/newuser
+'curl' http://192.168.2.119/8008/newuser --incluse --header "Content-Type: application/json" -d @body.json --request "POST"

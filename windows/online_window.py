@@ -6,7 +6,7 @@ import requests
 def open_online_acc(user):
 
     def server():
-        foo = requests.get("http://192.168.2.119:8008/book")
+        foo = requests.get("http://192.168.2.119:8008/user")
         print(foo)
 
     schriftart = "Microsoft YaHei UI Light"
