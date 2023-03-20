@@ -13,9 +13,20 @@ def open_accoverview(user):
         open_acc_window(tmp_user, tmp_user.return_acc(acc_selection_box.get()))
 
     def tmp_user_new_acc_window():
-        tmp_user.new_acc(acc_selection_box.get(), real_virtual_selection_box.get())
-        acc_selection_box.delete(0, END)
-        real_virtual_selection_box.delete(0, END)
+        # tmp_user.new_acc(acc_selection_box.get(), real_virtual_selection_box.get())
+        # acc_selection_box.delete(0, END)
+        # real_virtual_selection_box.delete(0, END)
+        middel_frame.pack_forget()
+        middel_frame_new_acc.pack(fill='y')
+
+    def back():
+        middel_frame_new_acc.pack_forget()
+        middel_frame.pack(fill='y')
+
+    def tmp_add_acc():
+        tmp_user.new_acc(acc_name_box_new_acc.get(), real_virtual_selection_box_new_acc.get())
+        acc_name_box_new_acc.delete(0, END)
+        real_virtual_selection_box_new_acc.delete(0, END)
 
     lang_path = '../settings/language/' + tmp_user.lang + '/accoverview_window.json'
 
@@ -63,5 +74,19 @@ def open_accoverview(user):
 
     pdf_button = Button(middel_frame, text='Make pdf', font=(schriftart, 11), border=0, command=user.make_pdf)
     pdf_button.pack(pady=2, padx=4)
+
+    middel_frame_new_acc= Frame(acc_win, width=300, height=900, bg='#202124')
+    
+    acc_name_box_new_acc = Entry(middel_frame_new_acc, font=('Consolas', 11), border=0)
+    acc_name_box_new_acc.pack(pady=0.5)
+
+    real_virtual_selection_box_new_acc = ttk.Combobox(middel_frame_new_acc, values=r_v)
+    real_virtual_selection_box_new_acc.pack(pady=0.5)
+
+    edit_acc_button_new_acc = Button(middel_frame_new_acc, text='Add', font=(schriftart, 11), border=0, command=tmp_add_acc)
+    edit_acc_button_new_acc.pack(pady=0.5)
+
+    new_acc_button_new_acc = Button(middel_frame_new_acc, text='Cancel', font=(schriftart, 11), border=0, command=back)
+    new_acc_button_new_acc.pack(pady=0.5)
 
     acc_win.mainloop()

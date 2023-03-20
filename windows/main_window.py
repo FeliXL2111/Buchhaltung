@@ -42,6 +42,10 @@ def open_win(user, xxxx = None, yyyy = None):
         global_user.load_user()
         open_win(global_user)
 
+    def check_height(event):
+        winHeight = event.width
+        winWidth = event.height
+        leiste.config(height=winHeight)
 
     schriftart = "Microsoft YaHei UI Light"
         
@@ -242,5 +246,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
     # frame2 = Frame(window, bg='snow', width=50, height=50)
     # frame2.grid(row=3, column=3)
+
+    #window.bind("<Configure>", check_height)
 
     window.mainloop()
