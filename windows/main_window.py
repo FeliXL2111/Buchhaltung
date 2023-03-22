@@ -47,7 +47,7 @@ def open_win(user, xxxx = None, yyyy = None):
         winWidth = event.height
         leiste.config(height=winHeight)
 
-    schriftart = "Microsoft YaHei UI Light"
+    FONT = "Microsoft YaHei UI Light"
         
     lang_path = '../settings/language/' + user.lang + '/main_window.json'
 
@@ -102,31 +102,31 @@ def open_win(user, xxxx = None, yyyy = None):
     l_logo.pack()
 
 
-    show_profile= Button(leiste, text=lang_bar_profile, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_profile)
+    show_profile= Button(leiste, text=lang_bar_profile, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_profile)
     show_profile.place(relx=0.1, rely=0.07)
 
-    trennung = Frame(leiste, width=220, height=5, bg='#202124')
+    trennung = Frame(leiste, width=220, height=3, bg='#202124')
     trennung.place(relx=0.1, rely=0.09)
 
-    settings_profile= Button(leiste, text=lang_bar_settings, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_settings)
+    settings_profile= Button(leiste, text=lang_bar_settings, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_settings)
     settings_profile.place(relx=0.1, rely=0.1)
 
-    trennung2 = Frame(leiste, width=220, height=5, bg='#202124')
+    trennung2 = Frame(leiste, width=220, height=3, bg='#202124')
     trennung2.place(relx=0.1, rely=0.12)
 
-    acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_accoverview)
+    acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_accoverview)
     acc_overview.place(relx=0.1, rely=0.13)
 
-    trennung3 = Frame(leiste, width=220, height=5, bg='#202124')
+    trennung3 = Frame(leiste, width=220, height=3, bg='#202124')
     trennung3.place(relx=0.1, rely=0.15)
 
-    all_entries = Button(leiste, text=lang_bar_all_prints, font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
+    all_entries = Button(leiste, text=lang_bar_all_prints, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
     all_entries.place(relx=0.1, rely=0.16)
 
-    Reload_button = Button(leiste, text='Reload', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
+    Reload_button = Button(leiste, text='Reload', font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
     Reload_button.place(relx=0.1, rely=0.19)
 
-    connect_to_server = Button(leiste, text='Server', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_online_acc)
+    connect_to_server = Button(leiste, text='Server', font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_online_acc)
     connect_to_server.place(relx=0.1, rely=0.21)
 
 
@@ -138,7 +138,7 @@ def open_win(user, xxxx = None, yyyy = None):
     middel_frame= Frame(master=window, width=300, height=900, bg='#202124')
     middel_frame.pack(fill='y')
 
-    ueberschrift = Label(middel_frame, text=lang_main_header, font=(schriftart, 30), fg='snow', bg='#202124')
+    ueberschrift = Label(middel_frame, text=lang_main_header, font=(FONT, 30), fg='snow', bg='#202124')
     ueberschrift.pack()
 
     for i in range(0, 5):
@@ -186,7 +186,7 @@ def open_win(user, xxxx = None, yyyy = None):
     button_frame = Frame(master=middel_frame, bg='#202124')
     button_frame.pack(pady=5)
 
-    save_button = Button(button_frame, text=lang_buttons_save, font=(schriftart, 11), border=0, command=save_input)
+    save_button = Button(button_frame, text=lang_buttons_save, font=(FONT, 11), border=0, command=save_input)
     # label.pack(side='left', expand=True, padx=10)
     save_button.grid(column=0, row=0, padx=5)
 
@@ -224,7 +224,7 @@ def open_win(user, xxxx = None, yyyy = None):
         print('config')
         
 
-    plot_button = Button(button_frame, text=lang_buttons_plot, font=(schriftart, 11), border=0, command=show_new_plot)
+    plot_button = Button(button_frame, text=lang_buttons_plot, font=(FONT, 11), border=0, command=show_new_plot)
     # h_button.pack(side='right', expand=True,)                                                         lambda: threading.Thread(target=show_new_plot()).start()
     plot_button.grid(column=3, row=0)
 

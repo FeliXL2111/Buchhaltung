@@ -13,7 +13,7 @@ def open_online_acc(user):
         list_foo = [4, 'pseudo_hash', user.lower_name]
         requests.post(url="http://192.168.2.119:8008/newuser", data=list_foo)
 
-    schriftart = "Microsoft YaHei UI Light"
+    FONT = "Microsoft YaHei UI Light"
         
     lang_path = r'../settings/language/' + user.lang + '/profile_window.json'
 
@@ -30,10 +30,10 @@ def open_online_acc(user):
     middel_frame= Frame(online_win, width=300, height=900, bg='#202124')
     middel_frame.pack(fill='y')
 
-    username = Label(middel_frame, text='Hier ist der online abschnitt', font=(schriftart, 11))
+    username = Label(middel_frame, text='Hier ist der online abschnitt', font=(FONT, 11))
     username.pack(pady=0.5)
 
-    rank = Label(middel_frame, text='Das könnte mal ein button sein', font=(schriftart, 11))
+    rank = Label(middel_frame, text='Das könnte mal ein button sein', font=(FONT, 11))
     rank.pack(pady=0.5)
 
     server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=getUser)
