@@ -14,6 +14,11 @@ import time
 from sql.sql_probe import *
 
 def open_win(user, xxxx = None, yyyy = None):
+
+    WHITE = '#ffffff'
+    DARK = '#202124'
+    LIGHT_BLUE = '#57a1f8'
+
     global global_user
     global_user = user
     def tmp_open_settings():
@@ -82,7 +87,7 @@ def open_win(user, xxxx = None, yyyy = None):
         Leiste
     '''
 
-    leiste = Frame(master=window, width=268, height=3000, bg='#ffffff')
+    leiste = Frame(master=window, width=268, height=window.winfo_screenheight(), bg=WHITE)
     leiste.place(x=0, y=0)
 
     foto_leiste = Frame(master=leiste)
@@ -102,32 +107,32 @@ def open_win(user, xxxx = None, yyyy = None):
     l_logo.pack()
 
 
-    show_profile= Button(leiste, text=lang_bar_profile, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_profile)
-    show_profile.place(relx=0.1, rely=0.07)
+    show_profile= Button(leiste, text=lang_bar_profile, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_profile)
+    show_profile.place(relx=0.1, rely=0.14)
 
-    trennung = Frame(leiste, width=220, height=3, bg='#202124')
-    trennung.place(relx=0.1, rely=0.09)
+    trennung = Frame(leiste, width=220, height=3, bg=DARK)
+    trennung.place(relx=0.1, rely=0.18)
 
-    settings_profile= Button(leiste, text=lang_bar_settings, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_settings)
-    settings_profile.place(relx=0.1, rely=0.1)
+    settings_profile= Button(leiste, text=lang_bar_settings, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_settings)
+    settings_profile.place(relx=0.1, rely=0.2)
 
-    trennung2 = Frame(leiste, width=220, height=3, bg='#202124')
-    trennung2.place(relx=0.1, rely=0.12)
+    trennung2 = Frame(leiste, width=220, height=3, bg=DARK)
+    trennung2.place(relx=0.1, rely=0.24)
 
-    acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_accoverview)
-    acc_overview.place(relx=0.1, rely=0.13)
+    acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_accoverview)
+    acc_overview.place(relx=0.1, rely=0.26)
 
-    trennung3 = Frame(leiste, width=220, height=3, bg='#202124')
-    trennung3.place(relx=0.1, rely=0.15)
+    trennung3 = Frame(leiste, width=220, height=3, bg=DARK)
+    trennung3.place(relx=0.1, rely=0.3)
 
-    all_entries = Button(leiste, text=lang_bar_all_prints, font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_all_entries)
-    all_entries.place(relx=0.1, rely=0.16)
+    all_entries = Button(leiste, text=lang_bar_all_prints, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_all_entries)
+    all_entries.place(relx=0.1, rely=0.32)
 
-    Reload_button = Button(leiste, text='Reload', font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=reload)
-    Reload_button.place(relx=0.1, rely=0.19)
+    Reload_button = Button(leiste, text='Reload', font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=reload)
+    Reload_button.place(relx=0.1, rely=0.38)
 
-    connect_to_server = Button(leiste, text='Server', font=(FONT, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_online_acc)
-    connect_to_server.place(relx=0.1, rely=0.21)
+    connect_to_server = Button(leiste, text='Server', font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_online_acc)
+    connect_to_server.place(relx=0.1, rely=0.42)
 
 
 
@@ -135,10 +140,10 @@ def open_win(user, xxxx = None, yyyy = None):
     '''
         Main
     '''
-    middel_frame= Frame(master=window, width=300, height=900, bg='#202124')
+    middel_frame= Frame(master=window, width=300, height=900, bg=DARK)
     middel_frame.pack(fill='y')
 
-    ueberschrift = Label(middel_frame, text=lang_main_header, font=(FONT, 30), fg='snow', bg='#202124')
+    ueberschrift = Label(middel_frame, text=lang_main_header, font=(FONT, 30), fg=WHITE, bg=DARK)
     ueberschrift.pack()
 
     for i in range(0, 5):
@@ -181,9 +186,9 @@ def open_win(user, xxxx = None, yyyy = None):
 
 
         # placeholder_l.config(text='Gespeichert', fg='#ffffff')
-        # placeholder_l.after(5000, placeholder_l.config(fg='#202124'))
+        # placeholder_l.after(5000, placeholder_l.config(fg=DARK))
 
-    button_frame = Frame(master=middel_frame, bg='#202124')
+    button_frame = Frame(master=middel_frame, bg=DARK)
     button_frame.pack(pady=5)
 
     save_button = Button(button_frame, text=lang_buttons_save, font=(FONT, 11), border=0, command=save_input)
@@ -231,11 +236,11 @@ def open_win(user, xxxx = None, yyyy = None):
     graph_frame = Frame(master=middel_frame)
     graph_frame.pack()
 
-    von_button = Entry(graph_frame, width=40, font=('Consolas', 11), border=0, fg='snow', bg='#202124', insertbackground='snow')
+    von_button = Entry(graph_frame, width=40, font=('Consolas', 11), border=0, fg=WHITE, bg=LIGHT_BLUE, insertbackground=LIGHT_BLUE)
     von_button.pack(side='left')
     von_button.insert(0, 'Von')
 
-    bis_button = Entry(graph_frame, width=40, font=('Consolas', 11), border=0, fg='snow', bg='#202124', insertbackground='snow')
+    bis_button = Entry(graph_frame, width=40, font=('Consolas', 11), border=0, fg=WHITE, bg=LIGHT_BLUE, insertbackground=LIGHT_BLUE)
     bis_button.pack(side='right')
     bis_button.insert(0, 'Bis')
 
