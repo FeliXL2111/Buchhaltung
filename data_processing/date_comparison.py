@@ -1,4 +1,4 @@
-def comparison(date1, date2):
+def comparison(date1, date2) -> str:
     date1 = date1.split('_')
     date2 = date2.split('_')
     for i in range(0, len(date1)):

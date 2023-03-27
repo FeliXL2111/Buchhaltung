@@ -12,8 +12,11 @@ from plots.plot import make_plot
 import threading
 import time
 from sql.sql_probe import *
+import os
 
 def open_win(user, xxxx = None, yyyy = None):
+
+    # bildschirmaufloesung = os.info_screen_with , wie bekommt man die screensize heraus
 
     WHITE = '#ffffff'
     DARK = '#202124'
@@ -108,31 +111,31 @@ def open_win(user, xxxx = None, yyyy = None):
 
 
     show_profile= Button(leiste, text=lang_bar_profile, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_profile)
-    show_profile.place(relx=0.1, rely=0.14)
+    show_profile.place(x=5, y=100)
 
     trennung = Frame(leiste, width=220, height=3, bg=DARK)
-    trennung.place(relx=0.1, rely=0.18)
+    trennung.place(x=5, y=120)
 
     settings_profile= Button(leiste, text=lang_bar_settings, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_settings)
-    settings_profile.place(relx=0.1, rely=0.2)
+    settings_profile.place(x=5, y=140)
 
     trennung2 = Frame(leiste, width=220, height=3, bg=DARK)
-    trennung2.place(relx=0.1, rely=0.24)
+    trennung2.place(x=5, y=160)
 
     acc_overview = Button(leiste, text=lang_bar_kontooverview, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_accoverview)
-    acc_overview.place(relx=0.1, rely=0.26)
+    acc_overview.place(x=5, y=180)
 
     trennung3 = Frame(leiste, width=220, height=3, bg=DARK)
-    trennung3.place(relx=0.1, rely=0.3)
+    trennung3.place(x=5, y=200)
 
     all_entries = Button(leiste, text=lang_bar_all_prints, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_all_entries)
-    all_entries.place(relx=0.1, rely=0.32)
+    all_entries.place(x=5, y=220)
 
     Reload_button = Button(leiste, text='Reload', font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=reload)
-    Reload_button.place(relx=0.1, rely=0.38)
+    Reload_button.place(x=5, y=240)
 
     connect_to_server = Button(leiste, text='Server', font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_online_acc)
-    connect_to_server.place(relx=0.1, rely=0.42)
+    connect_to_server.place(x=5, y=260)
 
 
 
