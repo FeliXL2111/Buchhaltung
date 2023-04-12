@@ -48,8 +48,8 @@ def open_win(user, xxxx = None, yyyy = None):
         open_win(global_user)
 
     def check_height(event):
-        winHeight = event.width
-        winWidth = event.height
+        winHeight = event.height
+        #winWidth = event.width
         leiste.config(height=winHeight)
 
     FONT = "Microsoft YaHei UI Light"
@@ -74,12 +74,20 @@ def open_win(user, xxxx = None, yyyy = None):
         #         print(lang_data[section][trans])
 
 
+    # win = Tk()
+    # win.title(lang_main_header)
+    # win.iconbitmap(r'../pic/icon.ico')
+    # win.geometry('2000x1000')
+    # win.configure(bg='#202124')
+
     window = Tk()
     window.title(lang_main_header)
     window.iconbitmap(r'../pic/icon.ico')
     window.geometry('2000x1000')
     window.configure(bg='#202124')
 
+    #win = Canvas(window)
+    #win.pack(fill='both')
 
 
     #################################################################################################################
@@ -107,7 +115,10 @@ def open_win(user, xxxx = None, yyyy = None):
     l_logo.pack()
 
 
-    show_profile= Button(leiste, text=lang_bar_profile, font=(FONT, 20), border=0, bg=WHITE, fg=LIGHT_BLUE, command=tmp_open_profile)
+    BIG_STYLE = ttk.Style()
+    BIG_STYLE.configure('my.TButton', font=(FONT, 20), foreground=LIGHT_BLUE)
+
+    show_profile= ttk.Button(leiste, text=lang_bar_profile,  command=tmp_open_profile, style='my.TButton') #font=(FONT, 20),  border=0, bg=WHITE, fg=LIGHT_BLUE, 
     show_profile.place(relx=0.1, rely=0.14)
 
     trennung = Frame(leiste, width=220, height=3, bg=DARK)
@@ -252,6 +263,6 @@ def open_win(user, xxxx = None, yyyy = None):
     # frame2 = Frame(window, bg='snow', width=50, height=50)
     # frame2.grid(row=3, column=3)
 
-    #window.bind("<Configure>", check_height)
+    #win.bind("<Configure>", check_height)
 
     window.mainloop()
