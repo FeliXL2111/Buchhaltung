@@ -75,6 +75,16 @@ def open_accoverview(user):
     pdf_button = Button(middel_frame, text='Make pdf', font=(schriftart, 11), border=0, command=user.make_pdf)
     pdf_button.pack(pady=2, padx=4)
 
+    diccc = {
+        'hallo':tmp_user_new_acc_window
+    }
+
+    tryy = ttk.OptionMenu(middel_frame, variable=r_v)
+    tryy.pack(pady=2)
+
+    tryy2 = ttk.Menubutton(middel_frame, menu=Menu(cnf=diccc))
+    tryy2.pac(pady=2)
+
     middel_frame_new_acc= Frame(acc_win, width=300, height=900, bg='#202124')
     
     acc_name_box_new_acc = Entry(middel_frame_new_acc, font=('Consolas', 11), border=0)

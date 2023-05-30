@@ -43,6 +43,8 @@ def open_login():
             nouser_label = Label(window, text='No User found')
             nouser_label.pack()
 
+    def enter_tmp(event):
+        tmp_imput_prove()
 
     ueberschrift = Label(window, text='Login', font=(schriftart, 30), fg='snow', bg='#202124')
     ueberschrift.pack()
@@ -61,4 +63,5 @@ def open_login():
     login = Button(window, text='New User', font=(schriftart, 20), border=0, bg='#ffffff', fg='#57a1f8', command=tmp_open_new_user)
     login.pack(pady=10)
 
+    window.bind('<Return>', enter_tmp)
     window.mainloop()
