@@ -36,10 +36,10 @@ def open_online_acc(user):
     rank = Label(middel_frame, text='Das könnte mal ein button sein', font=(FONT, 11))
     rank.pack(pady=0.5)
 
-    server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=getUser)
+    server_sync_button = Button(middel_frame, text='Get User', font=('Consolas', 11), border=0, command=getUser)
     server_sync_button.pack(pady=0.5)
 
-    server_sync_button = Button(middel_frame, text='switch password', font=('Consolas', 11), border=0, command=postNewUser)
+    server_sync_button = Button(middel_frame, text='New User', font=('Consolas', 11), border=0, command=postNewUser)
     server_sync_button.pack(pady=0.5)
 
     online_win.mainloop()

@@ -119,7 +119,7 @@ def open_win(user, xxxx = None, yyyy = None):
 
 
     BIG_STYLE = ttk.Style()
-    BIG_STYLE.configure('my.TButton', font=(FONT, 20), foreground=LIGHT_BLUE)
+    BIG_STYLE.configure('my.TButton', font=(FONT, 20), background=LIGHT_BLUE)
 
     show_profile= ttk.Button(leiste, text=lang_bar_profile,  command=tmp_open_profile, style='my.TButton') #font=(FONT, 20),  border=0, bg=WHITE, fg=LIGHT_BLUE, 
     show_profile.place(relx=0.1, rely=0.14)
