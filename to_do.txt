@@ -13,7 +13,7 @@ acc eigene file.db, muss sich mit erstellen und löschen wenn acc gelöscht oder
 alle stellen suchen in denen mit der sql_data gearbeitet wurde, ein parameter mehr => name von der db
 überlegen wo die daten von unterschiedlichen konten gespeichert werden
 überlegen ob user methode die attribute in db speichert oder immer an der stelle im code direkt
-überall wo acc_selection_box verwendet wird, erst valität überprüpfen 
+überall wo acc_selection_box verwendet wird, erst valität überprüpfen
 durch gängiges oder angepasst an transaktion chart
 go server aufsetzen
 token und id wird als json übertragen
@@ -21,6 +21,8 @@ c++ grafik libery downloaden
 c++ sqlite libery downloaden
 backend in c++ schreiben
 server muss sich auch updaten, muss zur version vom User passen
+einstellung sollen sich syncronisieren -> button für an und aus, umsetzung programmieren
+datendatei mit ontimepad verschlüsseln (Schlüssel ist der passworthash)
 
 pdflatex
 pdftex
