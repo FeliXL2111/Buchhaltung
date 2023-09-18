@@ -17,19 +17,24 @@ def cryp(file, key, filepath = None, keypath = None):
 def decryp(file, filepath, key):
     cryp(file, filepath, key)
 
-def generate_key(file, password, filepath = None):
-    hashed_password = hash_in(password)
+def generate_key(password):
+    hash_string = hash_in(password)
+    print(hash_string)
+    bs = hash_string.encode('ascii')
+    tmp = ""
+    for char in bs:
+        tmp += bin(char)[2:].zfill(8)
+    print(tmp)
+    return tmp
 
 def main():
     filepath = "test.txt"
-    listee = []
+    listee = ""
     with open(filepath, 'rb') as f:
         b = f.read()
     for byte in b:
-        m = 0
-        for i in range(8):
-            listee.insert(m, 2**i & byte)
-            m += 1
+        listee += bin(byte)[2:].zfill(8)
     print(listee)
+    generate_key("sicherespasswort")
 
 main()
