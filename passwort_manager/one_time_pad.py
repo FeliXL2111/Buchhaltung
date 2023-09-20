@@ -19,7 +19,7 @@ def decryp(file, filepath, key):
 
 def generate_key(password, anzahl):
     hash_string = hash_in(password)
-    bs = hash_string.encode('ascii')
+    bs = hash_string.encode('utf-8')
     tmp = ""
     for char in bs:
         tmp += bin(char)[2:].zfill(8)
@@ -70,6 +70,20 @@ def read_cryp_file():
         binary_text = file.read()
     return binary_text
 
+def bits_in_string_umwandeln(bit_string):
+        bit_gruppen = [bit_string[i:i+8] for i in range(0, len(bit_string), 8)]
+        buchstaben_string = ""
+        for bit_gruppe in bit_gruppen:
+            dezimalwert = int(bit_gruppe, 2)
+            buchstabe = chr(dezimalwert)
+            buchstaben_string += buchstabe
+
+        return buchstaben_string
+
+def save_file(text):
+    with open("decryp.txt", 'r+') as file:
+        file.write(text)
+
 def main():
     binary_key = generate_key("sicherespasswort", 1)
     binary_text = text_to_binary("test.txt")
@@ -79,9 +93,12 @@ def main():
     save_cryp_file(cryp_binary[0:len(binary_key)-len(binary_text)])
 
 def demain():
+    binary_key = generate_key("sicherespasswort", 1)
     binary_cryp = read_cryp_file()
-    i = 0
-    while i <= binary_cryp/8:
-        binary_cryp[i:i+7].encode("uft-8")
+    m_times_key = extend_key(len(binary_key), len(binary_cryp))
+    long_binary_key = generate_key("sicherespassword", m_times_key)
+    unxor_bits = xor(binary_cryp, long_binary_key, len(binary_cryp))
+    decryp_text = bits_in_string_umwandeln(unxor_bits)
+    save_file(decryp_text)
 
-main()
+demain()
