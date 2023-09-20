@@ -17,24 +17,71 @@ def cryp(file, key, filepath = None, keypath = None):
 def decryp(file, filepath, key):
     cryp(file, filepath, key)
 
-def generate_key(password):
+def generate_key(password, anzahl):
     hash_string = hash_in(password)
-    print(hash_string)
     bs = hash_string.encode('ascii')
     tmp = ""
     for char in bs:
         tmp += bin(char)[2:].zfill(8)
-    print(tmp)
-    return tmp
+    tmp2 = tmp
+    i = 1
+    while i <= anzahl - 1:
+        tmp2 += tmp
+        i += 1
+    return tmp2
 
-def main():
-    filepath = "test.txt"
-    listee = ""
+def text_to_binary(filepath):
+    binary_string = ""
     with open(filepath, 'rb') as f:
         b = f.read()
     for byte in b:
-        listee += bin(byte)[2:].zfill(8)
-    print(listee)
-    generate_key("sicherespasswort")
+        binary_string += bin(byte)[2:].zfill(8)
+    return  binary_string
+
+def extend_key(key_len = int, text_len = int):
+    if text_len <= key_len:
+        return 1
+    else:
+        m = text_len/key_len
+        # if int(m) <= m:
+        #     m += 1
+        #     int(m)
+        # elif int(m) > m:
+        #     int(m)
+        return m + 1
+    
+def xor(bt, bk, bt_len):
+    tmp = ""
+    i = 0
+    while i < bt_len:
+        if (bt[i] == "0" and bk[i] == "0") or (bt[i] == "1" and bk[i] == "1"):
+            tmp += "0"
+        else:
+            tmp += "1"
+        i += 1
+    return tmp
+
+def save_cryp_file(binary):
+    with open("cryp.cryp", 'w') as file:
+        file.write(binary)
+
+def read_cryp_file():
+    with open("cryp.cryp", 'r') as file:
+        binary_text = file.read()
+    return binary_text
+
+def main():
+    binary_key = generate_key("sicherespasswort", 1)
+    binary_text = text_to_binary("test.txt")
+    m_times_key = extend_key(len(binary_key), len(binary_text))
+    long_binary_key = generate_key("sicherespassword", m_times_key)
+    cryp_binary = xor(binary_text, long_binary_key, len(binary_text))
+    save_cryp_file(cryp_binary[0:len(binary_key)-len(binary_text)])
+
+def demain():
+    binary_cryp = read_cryp_file()
+    i = 0
+    while i <= binary_cryp/8:
+        binary_cryp[i:i+7].encode("uft-8")
 
 main()
