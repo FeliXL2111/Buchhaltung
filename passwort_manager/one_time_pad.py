@@ -36,7 +36,7 @@ def text_to_binary(filepath):
         b = f.read()
     for byte in b:
         binary_string += bin(byte)[2:].zfill(8)
-    return  binary_string
+    return binary_string
 
 def extend_key(key_len = int, text_len = int):
     if text_len <= key_len:
@@ -101,4 +101,14 @@ def demain():
     decryp_text = bits_in_string_umwandeln(unxor_bits)
     save_file(decryp_text)
 
-demain()
+def toBinary(i):
+    r = ""
+    while i != 0:
+        if i%2 == 0:
+            r += "0"
+        else:
+            r += "1"
+        i = int(i/2)
+    return r
+
+print(toBinary(65))
