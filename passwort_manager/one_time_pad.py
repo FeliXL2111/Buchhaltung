@@ -135,4 +135,6 @@ def extend_b(i):
     print(i, l)
     return i
 
-demain()
+with open("main.db", 'r', encoding='ISO/IEC') as file:
+    binary_text = file.read()
+print(binary_text)
