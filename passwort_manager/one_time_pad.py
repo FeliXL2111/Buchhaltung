@@ -34,7 +34,6 @@ def generate_key(password, anzahl):
     i = 1
     for char in hash_string:
         tmpp = toBinary(ord(char))
-        print(tmpp)
         l += extend_b(tmpp)
     ll = l
     while i <= anzahl - 1:
@@ -45,11 +44,18 @@ def generate_key(password, anzahl):
 
 def text_to_binary(filepath):
     binary_string = ""
-    with open(filepath, 'rb') as f:
-        b = f.read()
-    for byte in b:
-        binary_string += bin(byte)[2:].zfill(8)
-    return binary_string
+    # with open(filepath, 'rb') as f:
+    #     b = f.read()
+    # for byte in b:
+    #     binary_string += bin(byte)[2:].zfill(8)
+    # return binary_string
+    tmp = ''
+    with open("main.db", 'rb') as file:
+        binary_text = file.read()
+    for char in binary_text:
+        tmp += bin(char)[2:].zfill(8)
+    #print(tmp)
+    return tmp
 
 def extend_key(key_len = int, text_len = int):
     if text_len <= key_len:
@@ -61,7 +67,8 @@ def extend_key(key_len = int, text_len = int):
         #     int(m)
         # elif int(m) > m:
         #     int(m)
-        return m + 1
+        n = int(m)
+        return n + 1
     
 def xor(bt, bk, bt_len):
     tmp = ""
@@ -88,14 +95,14 @@ def bits_in_string_umwandeln(bit_string):
         buchstaben_string = ""
         for bit_gruppe in bit_gruppen:
             dezimalwert = int(bit_gruppe, 2)
-            buchstabe = chr(dezimalwert)
+            buchstabe = bit_gruppe.decode()
             buchstaben_string += buchstabe
 
         return buchstaben_string
 
 def save_file(text):
-    with open("decryp.txt", 'r+') as file:
-        file.write(text)
+    with open("decryp.db", 'w+') as file:
+            file.write(text)
 
 def main():
     binary_key = generate_key("sicherespasswort", 1)
@@ -103,8 +110,9 @@ def main():
     print(len(binary_key), len(binary_text), binary_key)
     m_times_key = extend_key(len(binary_key), len(binary_text))
     long_binary_key = generate_key("sicherespassword", m_times_key)
+    print(len(long_binary_key))
     cryp_binary = xor(binary_text, long_binary_key, len(binary_text))
-    save_cryp_file(cryp_binary[0:len(binary_key)-len(binary_text)])
+    save_cryp_file(cryp_binary[0:len(binary_text)])
 
 def demain():
     binary_key = generate_key("sicherespasswort", 1)
@@ -112,6 +120,7 @@ def demain():
     print(len(binary_key), len(binary_cryp), binary_key)
     m_times_key = extend_key(len(binary_key), len(binary_cryp))
     long_binary_key = generate_key("sicherespassword", m_times_key)
+    print(len(long_binary_key))
     unxor_bits = xor(binary_cryp, long_binary_key, len(binary_cryp))
     decryp_text = bits_in_string_umwandeln(unxor_bits)
     save_file(decryp_text)
@@ -132,9 +141,7 @@ def extend_b(i):
     while j > 0:
         i = "0" + i
         j -= 1
-    print(i, l)
+    #print(i, l)
     return i
 
-with open("main.db", 'r', encoding='ISO/IEC') as file:
-    binary_text = file.read()
-print(binary_text)
+demain()
