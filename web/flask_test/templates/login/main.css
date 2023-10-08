@@ -1,0 +1,23 @@
+.data{
+    background-image: linear-gradient(to bottom, rgba(117, 46, 210, 0.443) 0%, #070518 50%);
+    display: grid;
+    align-items: center;
+    place-items: center;
+    place-content: center;
+}
+
+.box{
+    display: grid;
+    width: 30rem;
+    height: 20rem;
+    padding: 5rem;
+}
+
+input{
+    text-shadow: 6px;
+    font-family: 'Rancho', sans-serif;
+}
+
+body{
+    background-color: brown;
+}

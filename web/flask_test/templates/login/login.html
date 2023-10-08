@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <form method="POST">
+    <h1>Buchhaltung::Login</h1>
+    <div class="data">
+        <label for="email">Email</label><div class="from-group" ><input type="text" class="form-control "id="email" placeholder="Email"></div>
+        <label for="password">Password</label><div class="from-group"><input type="password" class="form-control" id="Password" placeholder="password"></div>
+        <div class="box"><button type="submit" id="login">Login</button></div>
+    </div>
+    </form>
+</body>
+</html>

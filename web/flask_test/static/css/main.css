@@ -1,0 +1,39 @@
+.data{
+    background-color: rgb(72, 24, 118);
+    display: grid;
+    align-items: center;
+    place-items: center;
+    place-content: center;
+    width: 60rem;
+    height: 40rem;
+    border-radius: 3rem;
+    box-shadow:  0rem 1rem 5rem -0.2rem rgba(0, 0, 0, 1);
+}
+
+h1{
+    font-size: xx-large;
+    letter-spacing: 0.1em
+}
+
+.box{
+    display: grid;
+    padding: 1rem;
+}
+
+input{
+    font-family: 'Consolas', sans-serif;
+}
+
+button{
+    font-size: large;
+    background-color: deeppink;
+    box-shadow: none;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    align-items: center;
+    place-items: center;
+    font-family: 'Rancho', sans-serif;
+}
