@@ -8,7 +8,7 @@ def home():
 
 @views.route("/profile/<username>")
 def profile(username):
-    return render_template("index.html", name=username)
+    return render_template("present_page/index.html", name=username)
 
 @views.route("/login", methods=['GET', 'POST'])
 def login():
